@@ -1,0 +1,712 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: black;
+	color: white;
+	/* cursor: url('./assets/Mouse\ Point.png'), default; */
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	user-select: none;
+}
+
+body {
+	width: 1920px;
+	margin: 0 auto;
+}
+
+.z-index-0 {
+	z-index: -1;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.center {
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-dir-column {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+.color-white {
+	color: white;
+}
+
+.gradient-text {
+	background: linear-gradient(89.7deg, #a7dbff 3.88%, #9483ff 75.23%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.section-title {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 60px;
+	line-height: 72px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.avatar,
+.roadmap,
+.team {
+	padding-top: 120px !important;
+}
+
+@media screen and (max-width: 1920px) {
+	.join,
+	.team,
+	.roadmap,
+	.avatar {
+		overflow-x: clip;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	html {
+		overflow-x: hidden;
+	}
+}
+
+nav {
+	position: fixed;
+	width: 1200px;
+	height: 60px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 37px;
+	background: rgba(102, 102, 102, 0.3);
+	backdrop-filter: blur(20px);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 100;
+}
+
+.nav-mobile {
+	display: none;
+}
+
+nav ul li {
+	height: 30px;
+	line-height: 30px;
+	margin-left: 50px;
+	cursor: pointer;
+	font-weight: 300;
+	list-style: none;
+	position: relative;
+}
+
+nav ul li a {
+	color: white;
+}
+
+nav ul li:before {
+	content: '';
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	left: -20px;
+	top: calc(50% - 2px);
+}
+
+/* nav ul li:hover {
+    font-weight: 500;
+} */
+
+.first-page {
+	position: relative;
+}
+
+.first-page .head {
+	position: absolute;
+	left: 262px;
+	top: 475px;
+}
+
+.first-page .head img:first-child {
+	width: 512px;
+}
+
+.first-page .head img:last-child {
+	width: 323px;
+	position: absolute;
+	left: 100px;
+	margin-top: 10px;
+}
+
+.first-page .head p {
+	width: 480px;
+	height: 72px;
+	margin-left: 100px;
+
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 36px;
+	text-transform: uppercase;
+}
+
+.first-page .swapper {
+	display: inline-flex;
+	position: relative;
+	left: 888px;
+	max-height: 1075px;
+	overflow: hidden;
+}
+
+.first-page .bg {
+	position: absolute;
+	left: -338px;
+	top: 294px;
+	z-index: -1;
+	opacity: 0.5;
+}
+
+.first-page .swapper .column {
+	margin: 0 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.first-page .swapper .column img {
+	margin: 8px 0;
+}
+
+.fitness {
+	position: relative;
+}
+
+.fitness video {
+	width: 1920px;
+	height: 1080px;
+	margin: 0 auto;
+}
+
+.fitness .head {
+	width: 908px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 120px;
+	margin: 0 auto;
+	z-index: 100;
+}
+
+.fitness .sub-title {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.team {
+	margin: 0 auto 200px;
+	position: relative;
+	padding: 0 300px;
+}
+
+.team h2 {
+	width: 160px;
+	margin: 0 auto 75px;
+}
+
+.team .card {
+	width: 320px;
+	margin: 0 60px 20px;
+}
+
+.team .card > img {
+	width: 100%;
+}
+
+.team .name {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 29px;
+	margin: 15px 0 5px;
+}
+
+.team .job {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 22px;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 10px;
+}
+
+.team > div:last-child a {
+	display: inline-block;
+	margin: 10px 20px 20px 0;
+}
+
+.team .bg-1 {
+	width: 310px;
+	position: absolute;
+	left: 590.9px;
+	top: -118px;
+	opacity: 0.1;
+}
+
+.team .bg-2 {
+	position: absolute;
+	width: 1306.05px;
+	height: 1128.55px;
+	left: 1131px;
+	top: 265px;
+	transform: rotate(114.59deg);
+	opacity: 0.1;
+}
+
+.team .bg-3 {
+	position: absolute;
+	width: 900px;
+	height: 900px;
+	left: -410px;
+	top: -192px;
+	opacity: 0.25;
+}
+
+.team .bg-4 {
+	display: none;
+}
+
+.roadmap {
+	position: relative;
+	margin-bottom: 300px;
+}
+
+.roadmap > h2 {
+	margin: 0 auto 60px;
+	width: 350px;
+}
+
+.roadmap .road {
+	width: 640px;
+	margin: auto;
+}
+
+.roadmap .stage {
+	width: 320px;
+	border-right: 1px solid rgba(102, 102, 102);
+	position: relative;
+}
+
+.roadmap .stage:before {
+	content: '';
+	width: 13px;
+	height: 13px;
+	background-image: url(./assets/svg_icons/Group\ 61.svg);
+	background-repeat: no-repeat;
+	position: absolute;
+	right: -7px;
+	top: 20px;
+}
+
+.roadmap .stage:nth-child(2n):before {
+	right: unset;
+	left: -7px;
+}
+
+.roadmap .stage:first-child {
+	padding-top: 50px;
+}
+
+.roadmap .stage:first-child:before {
+	top: 70px;
+}
+
+.roadmap .stage:nth-child(2n) {
+	position: relative;
+	left: 320px;
+	padding-left: 100px;
+	border-right: none;
+	border-left: 1px solid rgba(102, 102, 102);
+}
+
+.roadmap .stage h2 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 48px;
+}
+
+.roadmap .stage h3 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 26px;
+	line-height: 31px;
+	margin: 20px 0 10px;
+}
+
+.roadmap .stage ul {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 22px;
+
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.roadmap .bg-1 {
+	position: absolute;
+	width: 993px;
+	height: 381px;
+	left: -600px;
+	top: 700px;
+	opacity: 0.1;
+}
+
+.roadmap .bg-2 {
+	position: absolute;
+	height: 760px;
+	right: 212px;
+	top: -38px;
+	opacity: 0.1;
+	transform: rotate(-180deg);
+}
+
+.roadmap .bg-3 {
+	position: absolute;
+	width: 900px;
+	right: -110px;
+	top: 662px;
+	opacity: 0.3;
+}
+
+.roadmap .bg-4,
+.roadmap .bg-5 {
+	display: none;
+}
+
+.avatar h2 {
+	margin-bottom: 50px;
+}
+
+.avatar .items img {
+	margin: 23px 0;
+}
+
+.avatar .tip > p:first-child {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 29px;
+	margin-bottom: 20px;
+}
+
+.avatar .tip > p:last-child {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 27px;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.avatar .items {
+	margin-top: 50px;
+}
+
+.avatar .transform-wrapper {
+	margin-left: -200px;
+}
+
+.avatar .transform-wrapper > div {
+	margin-bottom: 250px;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) div {
+	margin: 0 30px;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) div span {
+	position: relative;
+	left: -15px;
+	margin-top: 20px;
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.avatar .transform-wrapper > div:nth-child(2) .avatar-bg {
+	position: absolute;
+	width: 1200px;
+	left: 300px;
+	top: 40px;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) .avatar-bg {
+	position: absolute;
+	width: 1300px;
+	left: calc(50% - 650px);
+	top: 20px;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(1) {
+	margin-right: 90px;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(2) {
+	margin-right: 90px;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(3) {
+	margin-right: 90px;
+}
+
+.avatar .transform-wrapper > div:nth-child(1) .tip {
+	margin-left: 50px;
+}
+
+.avatar .transform-wrapper > div:nth-child(2) .tip {
+	left: -150px;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) {
+	left: -165px;
+}
+
+.avatar .transform-wrapper > div:nth-child(4) {
+	left: 50px;
+}
+
+.avatar .transform-wrapper > div:nth-child(4) .tip {
+	margin-left: 200px;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) {
+	left: -140px;
+}
+
+.avatar .bg-1 {
+	position: absolute;
+	width: 492px;
+	height: 492px;
+	left: -285px;
+	top: 70px;
+	opacity: 0.05;
+}
+
+.avatar .bg-2 {
+	position: absolute;
+	width: 837px;
+	height: 723px;
+	right: 50px;
+	top: 300px;
+	opacity: 0.2;
+	transform: rotate(147deg);
+}
+
+.avatar .bg-3 {
+	position: absolute;
+	left: -386px;
+	top: 345px;
+	width: 900px;
+	height: 900px;
+	opacity: 0.3;
+}
+
+.avatar .bg-4 {
+	position: absolute;
+	width: 675px;
+	height: 582px;
+	left: -555px;
+	top: 1125px;
+	opacity: 0.1;
+	transform: rotate(147deg);
+}
+
+.avatar .bg-5 {
+	position: absolute;
+	width: 900px;
+	height: 900px;
+	right: 77px;
+	top: 1627px;
+	opacity: 0.3;
+}
+
+.avatar .bg-6 {
+	position: absolute;
+	width: 900px;
+	height: 900px;
+	left: -623px;
+	top: 1900px;
+	opacity: 0.3;
+}
+
+.avatar .bg-7 {
+	position: absolute;
+	width: 704px;
+	height: 704px;
+	right: 177px;
+	top: 2246px;
+	opacity: 0.08;
+}
+
+.avatar .bg-8 {
+	position: absolute;
+	height: 828px;
+	left: -223px;
+	top: 2525px;
+	opacity: 0.1;
+}
+
+.avatar .bg-9 {
+	position: absolute;
+	height: 828px;
+	right: -18px;
+	top: 3325px;
+	opacity: 0.3;
+}
+
+.join {
+	max-height: 1100px;
+	overflow-y: clip;
+	padding-top: 90px;
+}
+
+.join h2 {
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 48px;
+	margin-bottom: 20px;
+}
+
+.join .button {
+	box-sizing: border-box;
+	width: 120px;
+	height: 46px;
+	border: 0.6px solid #ffffff;
+	border-radius: 6px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.join p {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 27px;
+
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.join h3 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 38px;
+	margin: 50px 0 25px;
+}
+
+.join > img {
+	width: 340px;
+	margin: 0 auto;
+}
+
+.join .links .button {
+	margin: 0 10px;
+}
+
+.join .bg-1 {
+	position: absolute;
+	left: -300px;
+	top: -55px;
+	width: 1100px;
+	opacity: 0.2;
+}
+
+.join .bg-2 {
+	position: absolute;
+	right: -190px;
+	top: -45px;
+	width: 1100px;
+	opacity: 0.35;
+}
+
+.join .bg-3 {
+	display: none;
+}
+
+.join .copy-right {
+	font-family: 'DIN';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.5);
+	margin: 200px auto 50px;
+}

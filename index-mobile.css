@@ -1,0 +1,778 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: black;
+	color: white;
+	font-size: 100px;
+	/* cursor: url('./assets/Mouse\ Point.png'), default; */
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	user-select: none;
+}
+
+html,
+body {
+	width: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.h100 {
+	height: 100%;
+}
+
+.z-index-0 {
+	z-index: -1;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.center {
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-dir-column {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+.color-white {
+	color: white;
+}
+
+.gradient-text {
+	background: linear-gradient(89.7deg, #a7dbff 3.88%, #9483ff 75.23%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.section-title {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.2rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.button {
+	box-sizing: border-box;
+	width: 0.6rem;
+	height: 0.23rem;
+	border: 0.6px solid #ffffff;
+	border-radius: 0.03rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0.05rem;
+}
+
+.button img {
+	width: 0.15rem;
+}
+
+.avatar,
+.roadmap,
+.team {
+	padding-top: 0.6rem !important;
+}
+
+.join,
+.team,
+.roadmap,
+.avatar {
+	overflow-x: clip;
+}
+
+nav {
+	position: fixed;
+	width: 100%;
+	height: 0.45rem;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 0;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(0.08rem);
+	z-index: 100;
+}
+
+.nav-pc {
+	display: none;
+}
+
+nav img:first-child {
+	margin-left: 0.2rem;
+	width: 0.2rem;
+}
+
+nav ul {
+	background: rgba(0, 0, 0, 0.5);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(100px);
+	display: none;
+}
+
+nav ul li {
+	height: 0.35rem;
+	line-height: 0.35rem;
+	padding-left: 0.25rem;
+	cursor: pointer;
+	font-weight: 300;
+	font-size: 0.1rem;
+	list-style: none;
+	position: relative;
+}
+
+nav ul li a {
+	color: white;
+	display: inline-block;
+	width: 100%;
+}
+
+nav ul li:before {
+	content: '';
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	left: -20px;
+	top: calc(50% - 2px);
+	display: none;
+}
+
+/* nav ul li:hover {
+    font-weight: 500;
+} */
+
+.first-page {
+	position: relative;
+	padding-top: 0.5rem;
+}
+
+.first-page .head {
+	text-align: center;
+	width: 100%;
+}
+
+.first-page .head img:first-child {
+	width: 3rem;
+}
+
+.first-page .head img:last-child {
+	width: 2rem;
+	position: absolute;
+	left: calc(50% - 1rem);
+}
+
+.first-page .head p {
+	text-align: center;
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.2rem;
+	line-height: 0.35rem;
+	text-transform: uppercase;
+}
+
+.first-page .swapper {
+	display: inline-flex;
+	max-height: 3.5rem;
+	overflow: hidden;
+	position: relative;
+	left: -0.4rem;
+	margin-top: 0.5rem;
+}
+
+.first-page .swapper:after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.first-page .bg {
+	position: absolute;
+	left: -2rem;
+	top: -3rem;
+	z-index: -1;
+	width: 6rem;
+	opacity: 0.5;
+}
+
+.first-page .swapper .column {
+	margin: 0 0.05rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.first-page .swapper .column img {
+	margin: 0.04rem 0;
+	width: 1rem;
+}
+
+.fitness {
+	position: relative;
+	padding-top: 0.6rem;
+}
+
+.fitness video {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.fitness .head {
+	z-index: 100;
+	white-space: nowrap;
+}
+
+.fitness .head h2 {
+	font-size: 0.2rem !important;
+}
+
+.fitness .sub-title {
+	width: 50%;
+	text-align: center;
+	white-space: pre-line;
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.12rem;
+	line-height: 0.16rem;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 0.2rem;
+}
+
+.team {
+	margin: 0 auto 1rem;
+	position: relative;
+}
+
+.team h2 {
+	width: 0.8rem;
+	margin: 0 auto 0.352rem;
+}
+
+.team .card {
+	width: calc(50% - 0.3rem);
+	margin: 0 0.15rem 0.1rem;
+}
+
+.team .card > img {
+	width: 100%;
+}
+
+.team .card div:last-child {
+	display: flex;
+}
+
+.team .card .button {
+	margin-left: 0;
+}
+
+.team .name {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 0.12rem;
+	line-height: 0.15rem;
+	margin: -0.1rem 0 0.1rem;
+}
+
+.team .job {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.08rem;
+	line-height: 0.18rem;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 0.1rem;
+}
+
+.team > div:last-child a {
+	display: inline-block;
+	margin: 0.05rem 0.1rem 0.1rem 0;
+}
+
+.team .bg-1 {
+	width: 1.55rem;
+	position: absolute;
+	left: 3rem;
+	top: -118px;
+	opacity: 0.1;
+	display: none;
+}
+
+.team .bg-2 {
+	position: absolute;
+	width: 1306.05px;
+	height: 1128.55px;
+	left: 1131px;
+	top: 265px;
+	transform: rotate(114.59deg);
+	opacity: 0.1;
+	display: none;
+}
+
+.team .bg-3 {
+	position: absolute;
+	width: 2.4rem;
+	left: -410px;
+	top: -192px;
+	opacity: 0.25;
+	display: none;
+}
+
+.team .bg-4 {
+	position: absolute;
+	width: 2.4rem;
+	left: -0.7rem;
+	top: -0.6rem;
+	opacity: 0.3;
+}
+
+.roadmap {
+	position: relative;
+	margin-bottom: 0.5rem;
+	margin-top: 0.6rem;
+}
+
+.roadmap > h2 {
+	margin: 0 auto;
+	width: 1.75rem;
+}
+
+.roadmap .road {
+	width: 100%;
+	margin-left: 0.3rem;
+}
+
+.roadmap .stage {
+	width: 80%;
+	border-left: 1px solid rgba(102, 102, 102);
+	position: relative;
+	padding-left: 0.25rem;
+}
+
+.roadmap .stage:before {
+	content: '';
+	width: 13px;
+	height: 13px;
+	background-image: url(./assets/svg_icons/Group\ 61.svg);
+	background-repeat: no-repeat;
+	position: absolute;
+	left: -7px;
+	top: 70px;
+}
+
+.roadmap .stage {
+	padding-top: 0.25rem;
+}
+
+.roadmap .stage:nth-child(2n) {
+	position: relative;
+	border-left: 1px solid rgba(102, 102, 102);
+}
+
+.roadmap .stage h2 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.2rem;
+	line-height: 0.24rem;
+}
+
+.roadmap .stage h3 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.13rem;
+	line-height: 0.16rem;
+	margin: 0.1rem 0;
+}
+
+.roadmap .stage ul {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.12rem;
+	line-height: 0.17rem;
+	margin-left: 0.1rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.roadmap .bg-1 {
+	position: absolute;
+	width: 993px;
+	height: 381px;
+	left: -600px;
+	top: 700px;
+	opacity: 0.1;
+	display: none;
+}
+
+.roadmap .bg-2 {
+	position: absolute;
+	width: 1.5rem;
+	right: 0;
+	top: 6.9rem;
+	opacity: 0.1;
+	transform: rotate(-180deg);
+	/* display: none; */
+}
+
+.roadmap .bg-3 {
+	position: absolute;
+	width: 900px;
+	right: -110px;
+	top: 662px;
+	opacity: 0.3;
+	display: none;
+}
+
+.roadmap .bg-4 {
+	position: absolute;
+	width: 2.4rem;
+	left: -0.4rem;
+	top: -0.6rem;
+	opacity: 0.3;
+}
+
+.roadmap .bg-5 {
+	position: absolute;
+	width: 2.4rem;
+	right: -1rem;
+	top: 3.4rem;
+	opacity: 0.3;
+}
+
+.avatar h2 {
+	margin-bottom: 0.25rem;
+}
+
+.avatar .items img {
+	margin: 0.115rem 2.5%;
+	width: 20%;
+}
+
+.avatar .items img:nth-child(13),
+.avatar .items img:nth-child(14) {
+	display: none;
+}
+
+.avatar .tip {
+	padding-bottom: 0.25rem;
+}
+
+.avatar .tip > p:first-child {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.16rem;
+	line-height: 0.19rem;
+	margin-bottom: 0.1rem;
+}
+
+.avatar .tip > p:last-child {
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.12rem;
+	line-height: 0.16rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.avatar .items {
+	margin-top: 0.25rem;
+	transform: scale(1.2);
+}
+
+.avatar .transform-wrapper > div:nth-child(1),
+.avatar .transform-wrapper > div:nth-child(2),
+.avatar .transform-wrapper > div:nth-child(4) {
+	flex-direction: column-reverse;
+}
+
+.avatar .transform-wrapper > div:nth-child(1) .imgs,
+.avatar .transform-wrapper > div:nth-child(2) .imgs,
+.avatar .transform-wrapper > div:nth-child(3),
+.avatar .transform-wrapper > div:nth-child(4) .imgs,
+.avatar .transform-wrapper > div:nth-child(5) {
+	white-space: nowrap;
+	transform: scale(0.35);
+	position: relative;
+	height: 2.5rem;
+	top: -0.5rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) {
+	top: 0.1rem;
+	height: 3.5rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(2) {
+	flex-direction: column-reverse;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) div {
+	margin: 0 0.15rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) div span {
+	position: relative;
+	left: -0.075rem;
+	margin-top: 0.1rem;
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.08rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(2) .avatar-bg {
+	position: absolute;
+	width: 200%;
+	left: -63.5%;
+	top: 0.8rem;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) .avatar-bg {
+	position: absolute;
+	width: 600%;
+	left: -162%;
+	top: -2.6rem;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) {
+	margin-left: 0.3rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(1),
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(2),
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(3) {
+	margin-right: 0.75rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(1) .tip,
+.avatar .transform-wrapper > div:nth-child(2) .tip,
+.avatar .transform-wrapper > div:nth-child(4) .tip {
+	text-align: center;
+}
+
+.avatar .bg-1 {
+	position: absolute;
+	width: 1.5rem;
+	/* height: 2.45rem; */
+	right: -0.3rem;
+	top: 13.15rem;
+	opacity: 0.1;
+	/* display: none; */
+	transform: rotate(147deg);
+}
+
+.avatar .bg-2 {
+	position: absolute;
+	width: 1.5rem;
+	right: -0.35rem;
+	top: 0.15rem;
+	opacity: 0.2;
+	transform: rotate(147deg);
+	/* display: none; */
+}
+
+.avatar .bg-3 {
+	position: absolute;
+	left: -1rem;
+	top: -0.3rem;
+	width: 2.4rem;
+	opacity: 0.3;
+	/* display: none; */
+}
+
+.avatar .bg-4 {
+	position: absolute;
+	width: 675px;
+	height: 582px;
+	left: -555px;
+	top: 1125px;
+	opacity: 0.1;
+	transform: rotate(147deg);
+	display: none;
+}
+
+.avatar .bg-5 {
+	position: absolute;
+	width: 2.4rem;
+	height: 2.4rem;
+	right: -0.7rem;
+	top: 7.5rem;
+	opacity: 0.3;
+	/* display: none; */
+}
+
+.avatar .bg-6 {
+	position: absolute;
+	width: 2.4rem;
+	/* height: 900px; */
+	left: -0.68rem;
+	top: 11.8rem;
+	opacity: 0.3;
+	/* display: none; */
+}
+
+.avatar .bg-7 {
+	position: absolute;
+	width: 704px;
+	height: 704px;
+	right: 177px;
+	top: 2246px;
+	opacity: 0.08;
+	display: none;
+}
+
+.avatar .bg-8 {
+	position: absolute;
+	height: 828px;
+	left: -223px;
+	top: 2525px;
+	opacity: 0.1;
+	display: none;
+}
+
+.avatar .bg-9 {
+	position: absolute;
+	width: 2.4rem;
+	right: -1.2rem;
+	top: 15.8rem;
+	opacity: 0.3;
+}
+
+.join {
+	max-height: 5.5rem;
+	padding-top: 0.6rem;
+}
+
+.join h2 {
+	font-weight: 300;
+	font-size: 0.2rem;
+	line-height: 0.24rem;
+	margin-bottom: 0.1rem;
+}
+
+.join p {
+	padding: 0 0.3rem;
+	font-family: 'Noto Sans Mono';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 0.1rem;
+	line-height: 0.18rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.join h3 {
+	font-family: 'Everett';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.16rem;
+	line-height: 0.19rem;
+	margin: 0.25rem 0 0.12rem;
+}
+
+.join > img {
+	width: 2.3rem;
+	margin: 0 auto;
+}
+
+.join .bg-1 {
+	position: absolute;
+	right: -0.9rem;
+	top: -1.1rem;
+	width: 2.3rem;
+	opacity: 0.3;
+}
+
+.join .bg-2 {
+	position: absolute;
+	right: -190px;
+	top: -45px;
+	width: 1100px;
+	opacity: 0.35;
+	display: none;
+}
+
+.join .bg-3 {
+	position: absolute;
+	left: -0.8rem;
+	top: 0.6rem;
+	width: 1.5rem;
+	opacity: 0.15;
+}
+
+.join .copy-right {
+	font-family: 'DIN';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 0.06rem;
+	line-height: 0.2rem;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.5);
+	margin: 1rem auto 0.25rem;
+}
