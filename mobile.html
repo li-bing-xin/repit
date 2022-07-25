@@ -7,21 +7,13 @@
 			name="viewport"
 			content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi "
 		/>
-		<link rel="stylesheet" href="./index.css" />
+		<link rel="stylesheet" href="./mobile.css" />
 		<title>Repit!</title>
 
 		<link rel="stylesheet" type="text/css" href="./lib/fullpage.css" />
 		<script type="text/javascript" src="./lib/fullpage.js"></script>
 
-		<style>
-			body {
-				display: none;
-			}
-
-			.fp-watermark {
-				display: none;
-			}
-		</style>
+		<style></style>
 	</head>
 	<body>
 		<nav class="nav-mobile">
@@ -61,7 +53,7 @@
 		</nav>
 
 		<main id="fullpage">
-			<section class="home relative section" data-anchor="home">
+			<section class="home relative section" id="home">
 				<div class="head">
 					<img src="./assets/Logo.svg" alt="repit!" draggable="false" />
 					<p class="gradient-text">
@@ -108,7 +100,7 @@
 				<img src="./assets/bg_components/VI_Grandient_02.png" class="bg" />
 			</section>
 
-			<section class="fitness section" data-anchor="fitness">
+			<section class="fitness section" id="fitness">
 				<div class="head flex-center flex-dir-column">
 					<h2 class="gradient-text section-title">Get Fit And Get Rewarded</h2>
 
@@ -119,7 +111,7 @@
 				<video poster="./assets/video-poster.png" autoplay></video>
 			</section>
 
-			<section class="avatar relative section" data-anchor="avatar">
+			<section class="avatar relative section" id="avatar">
 				<h2 class="gradient-text section-title">Your Evolvable NFT Avatar</h2>
 
 				<div class="transform-wrapper">
@@ -239,7 +231,7 @@
 				<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-9" />
 			</section>
 
-			<section class="roadmap section" data-anchor="roadmap">
+			<section class="roadmap section" id="roadmap">
 				<h2 class="gradient-text section-title">roadmap</h2>
 
 				<div class="road">
@@ -298,9 +290,9 @@
 				<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-5" />
 			</section>
 
-			<section class="team section" data-anchor="team">
+			<section class="team section" id="team">
 				<h2 class="gradient-text section-title">team</h2>
-				<div class="flex flex-wrap members">
+				<div class="flex flex-wrap">
 					<div class="card">
 						<img src="./assets/team/item_001.png" alt="" />
 						<div class="name">Dr.Daoist</div>
@@ -428,7 +420,7 @@
 
 			<section
 				class="join relative flex flex-dir-column justify-center center section"
-				data-anchor="join"
+				id="join"
 			>
 				<img src="./assets/Logo.svg" alt="repit!" class="center" />
 				<h2 class="gradient-text section-title">Join The Repit!Community</h2>
@@ -473,20 +465,10 @@
 		</main>
 
 		<script>
-			location.hash = 'home'
-			let instance = new fullpage('#fullpage', {
-				// touchSensitivity: 1000,
-				// scrollBar: true,
-				autoScrolling: true,
-				scrollHorizontally: true,
-				scrollOverflow: false,
-				fixedElements: '.nav-pc, .nav-mobile',
-				normalScrollElements: '.avatar, .roadmap, .team, .join',
-				anchors: ['home', 'fitness', 'avatar', 'roadmap', 'team', 'join'],
-				// responsiveHeight: 500,
-			})
-
-			console.log(instance)
+			// new fullpage('#fullpage', {
+			// 	autoScrolling: true,
+			// 	scrollHorizontally: true,
+			// })
 
 			let showMenu = false
 			function closeMenu() {
@@ -501,20 +483,6 @@
 					: 'none'
 			}
 
-			function justifyVideoStyle() {
-				const screenRatio =
-					document.documentElement.offsetWidth /
-					document.documentElement.offsetHeight
-				const originVideoRatio = 1920 / 1080
-				if (screenRatio > originVideoRatio) {
-					document.querySelector('.fitness video').style.cssText =
-						'width: 100vw; height: calc(1080 / 1920 * 100vw)'
-				} else {
-					document.querySelector('.fitness video').style.cssText =
-						'height: 100vh; height: calc(1920 / 1080 * 100vh)'
-				}
-			}
-
 			function computeRootRem() {
 				const screenW = document.documentElement.offsetWidth
 				const isPC = screenW >= 720
@@ -527,26 +495,25 @@
 			}
 
 			window.onload = function () {
-				const screenW = document.documentElement.offsetWidth
-				const isPC = screenW >= 720
+				// const screenW = document.documentElement.offsetWidth
+				// const isPC = screenW >= 720
 
-				const css = document.createElement('link')
-				css.rel = 'stylesheet'
-				css.href = isPC ? './index.css' : './index-mobile.css'
-				document.head.appendChild(css)
-				setTimeout(() => {
-					document.body.style.display = 'block'
-				})
+				// const css = document.createElement('link')
+				// css.rel = 'stylesheet'
+				// css.href = isPC ? './index.css' : './index-mobile.css'
+				// document.head.appendChild(css)
+				// setTimeout(() => {
+				// 	document.body.style.display = 'block'
+				// })
 
 				computeRootRem()
-				// justifyVideoStyle()
 			}
 
 			// window.onresize = computeRootRem
 
 			// function setFontSize() {
 			// 	document.documentElement.style.fontSize =
-			// 		(document.documentElement.clientWidth / 1920) * 16 * 7 + 'px'
+			// 		(document.documentElement.clientWidth / 650) * 16 + 'px'
 			// }
 
 			// window.addEventListener(

@@ -146,7 +146,7 @@ nav {
 	top: 0;
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(0.08rem);
-	z-index: 100;
+	z-index: 1000;
 }
 
 .nav-pc {
@@ -161,8 +161,9 @@ nav img:first-child {
 nav ul {
 	background: rgba(0, 0, 0, 0.5);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-	backdrop-filter: blur(100px);
+	backdrop-filter: blur(2rem);
 	display: none;
+	width: 1.2rem;
 }
 
 nav ul li {
@@ -198,27 +199,27 @@ nav ul li:before {
     font-weight: 500;
 } */
 
-.first-page {
+.home {
 	position: relative;
 	padding-top: 0.5rem;
 }
 
-.first-page .head {
+.home .head {
 	text-align: center;
 	width: 100%;
 }
 
-.first-page .head img:first-child {
+.home .head img:first-child {
 	width: 3rem;
 }
 
-.first-page .head img:last-child {
+.home .head img:last-child {
 	width: 2rem;
 	position: absolute;
 	left: calc(50% - 1rem);
 }
 
-.first-page .head p {
+.home .head p {
 	text-align: center;
 	font-family: 'Everett';
 	font-style: normal;
@@ -228,7 +229,7 @@ nav ul li:before {
 	text-transform: uppercase;
 }
 
-.first-page .swapper {
+.home .swapper {
 	display: inline-flex;
 	max-height: 3.5rem;
 	overflow: hidden;
@@ -237,7 +238,7 @@ nav ul li:before {
 	margin-top: 0.5rem;
 }
 
-.first-page .swapper:after {
+.home .swapper:after {
 	content: '';
 	width: 100%;
 	height: 100%;
@@ -247,7 +248,7 @@ nav ul li:before {
 	top: 0;
 }
 
-.first-page .bg {
+.home .bg {
 	position: absolute;
 	left: -2rem;
 	top: -3rem;
@@ -256,13 +257,13 @@ nav ul li:before {
 	opacity: 0.5;
 }
 
-.first-page .swapper .column {
+.home .swapper .column {
 	margin: 0 0.05rem;
 	display: flex;
 	flex-direction: column;
 }
 
-.first-page .swapper .column img {
+.home .swapper .column img {
 	margin: 0.04rem 0;
 	width: 1rem;
 }
