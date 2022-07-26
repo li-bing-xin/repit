@@ -18,18 +18,18 @@ function initFullpage() {
 
 function handleRedirect() {
 	const screenW = window.innerWidth
-	// const screenH = window.innerHeight
+	const screenH = window.innerHeight
 
 	const v = 720
 
+	if (location.href.includes('file')) return
+
 	if (screenW <= v && !location.href.includes('/mobile.html')) {
-		location.href = 'file:///D:/Projects/dn2life/mobile.html'
+		location.href = location.origin + '/mobile.html'
 	}
 	if (screenW > v && location.href.includes('/mobile.html')) {
-		location.href = 'file:///D:/Projects/dn2life/index.html'
+		location.href = location.origin + '/index.html'
 	}
-
-	//location.pathname !== '/mobile.html'; window.location.href = location.origin + '/mobile.html'
 }
 
 function computeRootFontsize() {
