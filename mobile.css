@@ -1,3 +1,16 @@
+@font-face {
+	font-family: 'Everett';
+	src: url(./assets/fonts/Everett-Regular.otf);
+	src: url(./assets/fonts/Everett-Jana.otf);
+	src: url(./assets/fonts/Everett-Light.otf);
+	src: url(./assets/fonts/Everett-Medium.otf);
+}
+
+@font-face {
+	font-family: 'Noto Sans Mono';
+	src: url(./assets/fonts/NotoSansMono.ttf);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -7,6 +20,9 @@ html {
 	background-color: black;
 	color: white;
 	font-size: 100px;
+	visibility: hidden;
+	height: 100vh;
+	overflow: hidden;
 	/* cursor: url('./assets/Mouse\ Point.png'), default; */
 }
 
@@ -23,6 +39,10 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 .w100 {
@@ -125,8 +145,9 @@ body {
 
 .avatar,
 .roadmap,
-.team {
-	padding-top: 0.6rem !important;
+.team,
+.fitness {
+	padding-top: 1rem !important;
 }
 
 .join,
@@ -149,27 +170,21 @@ nav {
 	z-index: 1000;
 }
 
-.nav-pc {
-	display: none;
-}
-
 nav img:first-child {
 	margin-left: 0.2rem;
 	width: 0.2rem;
 }
 
 nav ul {
-	background: rgba(0, 0, 0, 0.5);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-	backdrop-filter: blur(2rem);
-	display: none;
 	width: 1.2rem;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(0.2rem);
 }
 
 nav ul li {
 	height: 0.35rem;
 	line-height: 0.35rem;
-	padding-left: 0.25rem;
+	padding-left: 0.24rem;
 	cursor: pointer;
 	font-weight: 300;
 	font-size: 0.1rem;
@@ -178,9 +193,10 @@ nav ul li {
 }
 
 nav ul li a {
+	width: 100%;
 	color: white;
 	display: inline-block;
-	width: 100%;
+	text-transform: uppercase;
 }
 
 nav ul li:before {
@@ -195,13 +211,11 @@ nav ul li:before {
 	display: none;
 }
 
-/* nav ul li:hover {
-    font-weight: 500;
-} */
-
 .home {
 	position: relative;
 	padding-top: 0.5rem;
+	height: 100vh;
+	overflow: hidden;
 }
 
 .home .head {
@@ -215,8 +229,10 @@ nav ul li:before {
 
 .home .head img:last-child {
 	width: 2rem;
-	position: absolute;
-	left: calc(50% - 1rem);
+	/* position: absolute; */
+	margin: auto;
+	display: block;
+	/* left: calc(50% - 1rem); */
 }
 
 .home .head p {
@@ -231,21 +247,33 @@ nav ul li:before {
 
 .home .swapper {
 	display: inline-flex;
-	max-height: 3.5rem;
+	max-height: calc(100vh - 3rem);
 	overflow: hidden;
-	position: relative;
-	left: -0.4rem;
-	margin-top: 0.5rem;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.home .swapper:before {
+	content: '';
+	width: 100%;
+	height: 1rem;
+	background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
 }
 
 .home .swapper:after {
 	content: '';
 	width: 100%;
-	height: 100%;
+	height: 1rem;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 	position: absolute;
 	left: 0;
-	top: 0;
+	bottom: 0;
+	z-index: 10;
 }
 
 .home .bg {
@@ -265,17 +293,46 @@ nav ul li:before {
 
 .home .swapper .column img {
 	margin: 0.04rem 0;
-	width: 1rem;
+	width: 100%;
+}
+
+@keyframes infinityScroll {
+	0% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+.home .swapper .column {
+	margin: 0 0.04rem;
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+}
+
+.home .swapper .column .animation-box {
+	animation: infinityScroll 10s infinite linear;
+}
+
+.home .swapper .column:nth-child(2n) > .animation-box {
+	animation-direction: reverse;
 }
 
 .fitness {
 	position: relative;
-	padding-top: 0.6rem;
+	height: 100vh;
+	overflow: hidden;
 }
 
 .fitness video {
 	width: 100%;
-	margin: 0 auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
 }
 
 .fitness .head {
@@ -288,7 +345,7 @@ nav ul li:before {
 }
 
 .fitness .sub-title {
-	width: 50%;
+	width: 80%;
 	text-align: center;
 	white-space: pre-line;
 	font-family: 'Noto Sans Mono';
@@ -303,6 +360,9 @@ nav ul li:before {
 .team {
 	margin: 0 auto 1rem;
 	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .team h2 {
@@ -392,10 +452,13 @@ nav ul li:before {
 	position: relative;
 	margin-bottom: 0.5rem;
 	margin-top: 0.6rem;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .roadmap > h2 {
-	margin: 0 auto;
+	margin: 0 auto 0.5rem;
 	width: 1.75rem;
 }
 
@@ -454,7 +517,7 @@ nav ul li:before {
 	font-weight: 300;
 	font-size: 0.12rem;
 	line-height: 0.17rem;
-	margin-left: 0.1rem;
+	margin-left: 0.15rem;
 	color: rgba(255, 255, 255, 0.6);
 }
 
@@ -501,6 +564,12 @@ nav ul li:before {
 	right: -1rem;
 	top: 3.4rem;
 	opacity: 0.3;
+}
+
+.avatar {
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .avatar h2 {

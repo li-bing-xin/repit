@@ -8,53 +8,24 @@
 			content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi "
 		/>
 		<link rel="stylesheet" href="./index.css" />
-		<title>Repit!</title>
-
 		<link rel="stylesheet" type="text/css" href="./lib/fullpage.css" />
 		<script type="text/javascript" src="./lib/fullpage.js"></script>
-
-		<style>
-			body {
-				display: none;
-			}
-
-			.fp-watermark {
-				display: none;
-			}
-		</style>
+		<script type="text/javascript" src="./lib/vue_3.2.36.js"></script>
+		<script type="text/javascript" src="./common.js"></script>
+		<title>Repit!</title>
 	</head>
-	<body>
-		<nav class="nav-mobile">
-			<div class="flex justify-between align-items-center h100">
-				<img
-					src="./assets/svg_icons/Btn_Menu.svg"
-					alt="Collapse"
-					onclick="toggleMenu()"
-				/>
-				<img src="./assets/Logo.svg" alt="Repit!" class="h100" />
-			</div>
-
-			<ul>
-				<li onclick="closeMenu()"><a href="#home">-&nbsp;&nbsp;HOME</a></li>
-				<li onclick="closeMenu()">
-					<a href="#fitness">-&nbsp;&nbsp;FITNESS</a>
-				</li>
-				<li onclick="closeMenu()"><a href="#avatar">-&nbsp;&nbsp;AVATAR</a></li>
-				<li onclick="closeMenu()">
-					<a href="#roadmap">-&nbsp;&nbsp;ROADMAP</a>
-				</li>
-				<li onclick="closeMenu()"><a href="#team">-&nbsp;&nbsp;TEAM</a></li>
-				<li onclick="closeMenu()"><a href="#join">-&nbsp;&nbsp;JOIN</a></li>
-			</ul>
-		</nav>
-		<nav class="nav-pc">
+	<body id="app">
+		<nav class="nav">
 			<ul class="flex">
-				<li><a href="#home">HOME</a></li>
-				<li><a href="#fitness">FITNESS</a></li>
-				<li><a href="#avatar">AVATAR</a></li>
-				<li><a href="#roadmap">ROADMAP</a></li>
-				<li><a href="#team">TEAM</a></li>
-				<li><a href="#join">JOIN</a></li>
+				<li
+					v-for="anchor in anchors"
+					:key="anchor"
+					@click="onClickAnchor(anchor)"
+				>
+					<a :href="'#' + anchor" :class="{bold: hash === anchor}"
+						>{{anchor}}</a
+					>
+				</li>
 				<li><img src="./assets/svg_icons/Twitter.svg" alt="Twitter" /></li>
 			</ul>
 			<img src="./assets/Logo.svg" alt="repit!" draggable="false" />
@@ -62,61 +33,102 @@
 
 		<main id="fullpage">
 			<section class="home relative section" data-anchor="home">
-				<div class="head">
-					<img src="./assets/Logo.svg" alt="repit!" draggable="false" />
-					<p class="gradient-text">
-						The World's First <br />
-						Evolvable-NFT Workout Game
-					</p>
-					<img src="./assets/bg_components/Circles.svg" draggable="false" />
-				</div>
+				<div class="vh100 overflow-hidden relative">
+					<div class="head">
+						<img src="./assets/Logo.svg" alt="repit!" draggable="false" />
+						<p class="gradient-text">
+							The World's First <br />
+							Evolvable-NFT Workout Game
+						</p>
+						<img src="./assets/bg_components/Circles.svg" draggable="false" />
+					</div>
 
-				<div class="swapper" draggable="false">
-					<div class="column">
-						<img src="./assets/swapper_images/Hero_001.png" />
-						<img src="./assets/swapper_images/Vector.png" />
-						<img src="./assets/swapper_images/Hero_006.png" />
-						<img src="./assets/swapper_images/Hero_008.png" />
-						<img src="./assets/swapper_images/Hero_002-1.png" />
-						<img src="./assets/swapper_images/Hero_009.png" />
-						<img src="./assets/swapper_images/Hero_007-1.png" />
-					</div>
-					<div class="column">
-						<img src="./assets/swapper_images/Hero_005.png" />
-						<img src="./assets/swapper_images/Card-1.png" />
-						<img src="./assets/swapper_images/Hero_003.png" />
-						<img src="./assets/swapper_images/Vector-2.png" />
-						<img src="./assets/swapper_images/Vector-1.png" />
-					</div>
-					<div class="column">
-						<img src="./assets/swapper_images/Vector-2.png" />
-						<img src="./assets/swapper_images/Hero_007.png" />
-						<img src="./assets/swapper_images/Card-2.png" />
-						<img src="./assets/swapper_images/Card-1.png" />
-						<img src="./assets/swapper_images/Hero_002.png" />
-						<img src="./assets/swapper_images/Hero_002-1.png" />
-					</div>
-					<div class="column">
-						<img src="./assets/swapper_images/Hero_004.png" />
-						<img src="./assets/swapper_images/Card-3.png" />
-						<img src="./assets/swapper_images/Hero_009.png" />
-						<img src="./assets/swapper_images/Hero_003-1.png" />
-						<img src="./assets/swapper_images/Hero_006.png" />
-					</div>
-				</div>
+					<div class="swapper" draggable="false">
+						<div class="column">
+							<div class="animation-box flex flex-dir-column">
+								<img src="./assets/swapper_images/Hero_001.png" />
+								<img src="./assets/swapper_images/Vector.png" />
+								<img src="./assets/swapper_images/Hero_006.png" />
+								<img src="./assets/swapper_images/Hero_008.png" />
+								<img src="./assets/swapper_images/Hero_002-1.png" />
+								<img src="./assets/swapper_images/Hero_009.png" />
+								<img src="./assets/swapper_images/Hero_007-1.png" />
 
-				<img src="./assets/bg_components/VI_Grandient_02.png" class="bg" />
+								<img src="./assets/swapper_images/Hero_001.png" />
+								<img src="./assets/swapper_images/Vector.png" />
+								<img src="./assets/swapper_images/Hero_006.png" />
+								<img src="./assets/swapper_images/Hero_008.png" />
+								<img src="./assets/swapper_images/Hero_002-1.png" />
+								<img src="./assets/swapper_images/Hero_009.png" />
+								<img src="./assets/swapper_images/Hero_007-1.png" />
+							</div>
+						</div>
+						<div class="column">
+							<div class="animation-box flex flex-dir-column">
+								<img src="./assets/swapper_images/Hero_005.png" />
+								<img src="./assets/swapper_images/Card-1.png" />
+								<img src="./assets/swapper_images/Hero_003.png" />
+								<img src="./assets/swapper_images/Vector-2.png" />
+								<img src="./assets/swapper_images/Vector-1.png" />
+
+								<img src="./assets/swapper_images/Hero_005.png" />
+								<img src="./assets/swapper_images/Card-1.png" />
+								<img src="./assets/swapper_images/Hero_003.png" />
+								<img src="./assets/swapper_images/Vector-2.png" />
+								<img src="./assets/swapper_images/Vector-1.png" />
+							</div>
+						</div>
+						<div class="column">
+							<div class="animation-box flex flex-dir-column">
+								<img src="./assets/swapper_images/Vector-2.png" />
+								<img src="./assets/swapper_images/Hero_007.png" />
+								<img src="./assets/swapper_images/Card-2.png" />
+								<img src="./assets/swapper_images/Card-1.png" />
+								<img src="./assets/swapper_images/Hero_002.png" />
+								<img src="./assets/swapper_images/Hero_002-1.png" />
+
+								<img src="./assets/swapper_images/Vector-2.png" />
+								<img src="./assets/swapper_images/Hero_007.png" />
+								<img src="./assets/swapper_images/Card-2.png" />
+								<img src="./assets/swapper_images/Card-1.png" />
+								<img src="./assets/swapper_images/Hero_002.png" />
+								<img src="./assets/swapper_images/Hero_002-1.png" />
+							</div>
+						</div>
+						<div class="column">
+							<div class="animation-box flex flex-dir-column">
+								<img src="./assets/swapper_images/Hero_004.png" />
+								<img src="./assets/swapper_images/Card-3.png" />
+								<img src="./assets/swapper_images/Hero_009.png" />
+								<img src="./assets/swapper_images/Hero_003-1.png" />
+								<img src="./assets/swapper_images/Hero_006.png" />
+
+								<img src="./assets/swapper_images/Hero_004.png" />
+								<img src="./assets/swapper_images/Card-3.png" />
+								<img src="./assets/swapper_images/Hero_009.png" />
+								<img src="./assets/swapper_images/Hero_003-1.png" />
+								<img src="./assets/swapper_images/Hero_006.png" />
+							</div>
+						</div>
+					</div>
+
+					<img src="./assets/bg_components/VI_Grandient_02.png" class="bg" />
+				</div>
 			</section>
 
 			<section class="fitness section" data-anchor="fitness">
-				<div class="head flex-center flex-dir-column">
-					<h2 class="gradient-text section-title">Get Fit And Get Rewarded</h2>
+				<div class="vh100 relative overflow-hidden center flex flex-center">
+					<div class="head flex-center flex-dir-column">
+						<h2 class="gradient-text section-title">
+							Get Fit And Get Rewarded
+						</h2>
 
-					<p class="color-white sub-title">
-						The Most Fun, Interactive and Rewarding Way to Work Out
-					</p>
+						<p class="color-white sub-title">
+							The Most Fun, Interactive and Rewarding Way to Work Out
+						</p>
+					</div>
+					<video poster="./assets/video-poster.png" autoplay></video>
 				</div>
-				<video poster="./assets/video-poster.png" autoplay></video>
 			</section>
 
 			<section class="avatar relative section" data-anchor="avatar">
@@ -248,9 +260,9 @@
 						<h3>Founding</h3>
 						<ul>
 							<li>Founding team assembly</li>
-							<li>Bread establishment</li>
+							<li>Brand establishment</li>
 							<li>Movement AI algorithm development</li>
-							<li>Angel round fundraising</li>
+							<li>Angel Round fundraising</li>
 						</ul>
 					</div>
 					<div class="stage">
@@ -260,7 +272,7 @@
 							<li>Website launch</li>
 							<li>Product demo ready</li>
 							<li>Community establishment</li>
-							<li>Seed round fundraising</li>
+							<li>Seed Round fundraising</li>
 						</ul>
 					</div>
 					<div class="stage">
@@ -294,16 +306,14 @@
 				<img src="./assets/bg_components/Brand_Pattern_05.svg" class="bg-1" />
 				<img src="./assets/bg_components/Brand_Pattern_03.svg" class="bg-2" />
 				<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-3" />
-				<img src="./assets/bg_components/VI_Grandient_01.png" class="bg-4" />
-				<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-5" />
 			</section>
 
 			<section class="team section" data-anchor="team">
 				<h2 class="gradient-text section-title">team</h2>
 				<div class="flex flex-wrap members">
 					<div class="card">
-						<img src="./assets/team/item_001.png" alt="" />
-						<div class="name">Dr.Daoist</div>
+						<img src="./assets/team/Vector.png" alt="" />
+						<div class="name">Dr_Daoist</div>
 						<div class="job">Serial Entrepreneur</div>
 						<div>
 							<a href="" class="button">
@@ -323,8 +333,8 @@
 						</div>
 					</div>
 					<div class="card">
-						<img src="./assets/team/item_002.png" alt="" />
-						<div class="name">soTeARul</div>
+						<img src="./assets/team/Vector-3.png" alt="" />
+						<div class="name">soTEARul</div>
 						<div class="job">Game Economy Wizard</div>
 						<div>
 							<a href="" class="button">
@@ -344,7 +354,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img src="./assets/team/item_003.png" alt="" />
+						<img src="./assets/team/Vector-5.png" alt="" />
 						<div class="name">VossN°13</div>
 						<div class="job">Digital Fashion Pioneer</div>
 						<div>
@@ -358,7 +368,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img src="./assets/team/item_004.png" alt="" />
+						<img src="./assets/team/Vector-2.png" alt="" />
 						<div class="name">SuperGoji</div>
 						<div class="job">Crypto-Native All-Rounder</div>
 						<div>
@@ -379,7 +389,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img src="./assets/team/item_005.png" alt="" />
+						<img src="./assets/team/Vector-1.png" alt="" />
 						<div class="name">AAAplayer</div>
 						<div class="job">Digital Growth Hacker</div>
 						<div>
@@ -393,7 +403,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img src="./assets/team/item_006.png" alt="" />
+						<img src="./assets/team/Vector-4.png" alt="" />
 						<div class="name">Lifeguard0x29</div>
 						<div class="job">Computer Vision Guru</div>
 						<div>
@@ -420,10 +430,6 @@
 					src="./assets/bg_components/VI_Grandient_01.png"
 					class="bg-3 z-index-0"
 				/>
-				<img
-					src="./assets/bg_components/VI_Grandient_04.png"
-					class="bg-4 z-index-0"
-				/>
 			</section>
 
 			<section
@@ -431,10 +437,10 @@
 				data-anchor="join"
 			>
 				<img src="./assets/Logo.svg" alt="repit!" class="center" />
-				<h2 class="gradient-text section-title">Join The Repit!Community</h2>
+				<h2 class="gradient-text section-title">Join The Repit! Community</h2>
 				<p class="color-white">
 					Co-create the next generation of evolable NFTs and fitness mateverse
-					with join!
+					with us!
 					<br />
 					<br />
 					Join our community, complete whitelist tasks, and receive your very
@@ -472,92 +478,6 @@
 			</section>
 		</main>
 
-		<script>
-			location.hash = 'home'
-			let instance = new fullpage('#fullpage', {
-				// touchSensitivity: 1000,
-				// scrollBar: true,
-				autoScrolling: true,
-				scrollHorizontally: true,
-				scrollOverflow: false,
-				fixedElements: '.nav-pc, .nav-mobile',
-				normalScrollElements: '.avatar, .roadmap, .team, .join',
-				anchors: ['home', 'fitness', 'avatar', 'roadmap', 'team', 'join'],
-				// responsiveHeight: 500,
-			})
-
-			console.log(instance)
-
-			let showMenu = false
-			function closeMenu() {
-				document.querySelector('nav ul').style.display = 'none'
-				showMenu = false
-			}
-
-			function toggleMenu() {
-				showMenu = !showMenu
-				document.querySelector('nav ul').style.display = showMenu
-					? 'block'
-					: 'none'
-			}
-
-			function justifyVideoStyle() {
-				const screenRatio =
-					document.documentElement.offsetWidth /
-					document.documentElement.offsetHeight
-				const originVideoRatio = 1920 / 1080
-				if (screenRatio > originVideoRatio) {
-					document.querySelector('.fitness video').style.cssText =
-						'width: 100vw; height: calc(1080 / 1920 * 100vw)'
-				} else {
-					document.querySelector('.fitness video').style.cssText =
-						'height: 100vh; height: calc(1920 / 1080 * 100vh)'
-				}
-			}
-
-			function computeRootRem() {
-				const screenW = document.documentElement.offsetWidth
-				const isPC = screenW >= 720
-
-				if (isPC) {
-					document.querySelector('html').style.fontSize = `${
-						(screenW / 1920) * 100
-					}px`
-				}
-			}
-
-			window.onload = function () {
-				const screenW = document.documentElement.offsetWidth
-				const isPC = screenW >= 720
-
-				const css = document.createElement('link')
-				css.rel = 'stylesheet'
-				css.href = isPC ? './index.css' : './index-mobile.css'
-				document.head.appendChild(css)
-				setTimeout(() => {
-					document.body.style.display = 'block'
-				})
-
-				computeRootRem()
-				// justifyVideoStyle()
-			}
-
-			// window.onresize = computeRootRem
-
-			// function setFontSize() {
-			// 	document.documentElement.style.fontSize =
-			// 		(document.documentElement.clientWidth / 1920) * 16 * 7 + 'px'
-			// }
-
-			// window.addEventListener(
-			// 	'resize',
-			// 	function () {
-			// 		setFontSize()
-			// 	},
-			// 	false
-			// )
-
-			// setFontSize()
-		</script>
+		<script></script>
 	</body>
 </html>

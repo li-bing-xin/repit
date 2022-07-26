@@ -238,9 +238,10 @@ html.fp-enabled,
 }
 
 .fp-overflow{
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
-    outline:none;
+    outline:
+    none;
 }
 
 .fp-overflow.fp-table{
