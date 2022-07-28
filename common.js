@@ -57,29 +57,40 @@ function createVue() {
 				showMenu: false, //仅用于移动端，控制菜单栏的显隐
 				avatarSectionScrollTop: 0, // avatar板块的滚动高度，根据该高度实时计算板块中元素的位置
 				triggerHeight: [0, 500, 400, 600],
-				animationRange: 200,
+				animationRange: 350,
 			}
 		},
 		watch: {
 			avatarSectionScrollTop(n, o) {
-				console.log(this.animationRange, 99)
 				//第一个板块的进入和离开的动画控制
 				{
-					const h = 30
+					const h = 10
 					//0进1
-					if (n >= h && o < h) {
+					if (n >= h && o <= h) {
 						document.querySelector('.avatar .section-1').classList.add('leave')
 						document
 							.querySelector('.avatar .section-1')
 							.classList.remove('enter')
 					}
 
-					//1进0
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-1')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-1').classList.add('enter')
+					//其他进0
+					if (o >= h && n <= h) {
+						setTimeout(() => {
+							document
+								.querySelectorAll('.transform-wrapper > div')
+								.forEach(item => {
+									item.classList.remove('enter')
+									item.classList.add('leave')
+								})
+							document
+								.querySelector('.avatar .section-1')
+								.classList.add('enter')
+						})
+						setTimeout(() => {
+							document
+								.querySelector('.avatar .section-1')
+								.classList.remove('leave')
+						})
 					}
 				}
 

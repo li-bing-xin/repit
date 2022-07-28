@@ -115,8 +115,9 @@
 				<h2 class="gradient-text section-title">Your Evolvable NFT Avatar</h2>
 
 				<div
-					class="transform-wrapper absolute"
-					:style="`top:${avatarSectionScrollTop >= 3300 ? 3300 : avatarSectionScrollTop}px`"
+					class="transform-wrapper relative"
+					:style="`transform: translateY(${avatarSectionScrollTop >= animationRange * 6.5 ? animationRange * 6.5 : avatarSectionScrollTop}px)`"
+					draggable="false"
 				>
 					<div class="section-1 relative enter">
 						<div class="imgs">

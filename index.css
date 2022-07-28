@@ -138,6 +138,19 @@ body {
 	padding-top: 1.4rem !important;
 }
 
+.home::before,
+.fitness::before,
+.avatar::before,
+.roadmap::before,
+.team::before,
+.join::before {
+	content: '';
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+}
+
 @media screen and (max-width: 19.2rem) {
 	.join,
 	.team,
@@ -272,19 +285,19 @@ nav ul li:hover {
 }
 
 .home .swapper .column .animation-box {
-	animation: infinityScroll 10s infinite linear;
+	animation: 13s linear 0ms infinite normal none running infinityScroll;
 }
 
 .home .swapper .column:nth-child(2n) > .animation-box {
 	animation-direction: reverse;
 }
 
-.home .swapper .column:nth-child(3) > .animation-box {
-	animation-duration: 15s;
+.home .swapper .column:nth-child(2) > .animation-box {
+	animation-duration: 18s;
 }
 
-.home .swapper .column:nth-child(4) > .animation-box {
-	animation-duration: 6s;
+.home .swapper .column:nth-child(3) > .animation-box {
+	animation-duration: 16s;
 }
 
 .home .bg {
@@ -599,14 +612,14 @@ nav ul li:hover {
 	display: flex;
 	/* align-items: center; */
 	/* overflow-y: hidden; */
-	padding-top: 30vh;
+	/* padding-top: 30vh; */
 	/* overflow: hidden; */
 }
 
 .avatar .transform-wrapper .imgs {
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.8rem;
 	width: 10rem;
 	height: 5rem;
 }
@@ -680,7 +693,7 @@ nav ul li:hover {
 .avatar .transform-wrapper .section-1 .tip {
 	position: absolute;
 	left: 10rem;
-	top: 2.5rem;
+	top: 2rem;
 	transform: translateY(-0.75rem);
 }
 
@@ -709,7 +722,7 @@ nav ul li:hover {
 .avatar .transform-wrapper .section-2 .tip {
 	position: absolute;
 	left: 7rem;
-	top: 2.7rem;
+	top: 2rem;
 	transform: translateY(-0.75rem);
 }
 
@@ -802,7 +815,7 @@ nav ul li:hover {
 .avatar .transform-wrapper .section-5 .tip {
 	position: absolute;
 	left: 7rem;
-	top: 2.6rem;
+	top: 2rem;
 	transform: translateY(-0.75rem);
 }
 
@@ -867,11 +880,12 @@ nav ul li:hover {
 
 .avatar .transform-wrapper .section-7 {
 	position: relative;
-	top: -10vh;
+	top: -1.5rem;
 }
 
 .avatar .transform-wrapper .section-7 .imgs {
 	width: 100vw;
+	height: unset;
 	left: -2.4rem;
 	display: flex;
 	flex-wrap: wrap;
@@ -907,25 +921,25 @@ nav ul li:hover {
 	position: absolute;
 	width: 3.52rem;
 	left: -1.15rem;
-	top: 1.9rem;
+	top: 190px;
 	opacity: 0.05;
 }
 
 .avatar .bg-2 {
 	position: absolute;
-	width: 6.37rem;
+	width: 8.37rem;
 	height: 7.23rem;
-	right: 0.5rem;
-	top: 3rem;
+	right: -1.5rem;
+	top: 200px;
 	opacity: 0.2;
-	transform: rotate(160deg);
+	/* transform: rotate(160deg); */
 }
 
 .avatar .bg-3 {
 	position: absolute;
 	left: -1.86rem;
-	top: 3.45rem;
-	width: 7rem;
+	top: 300px;
+	width: 8rem;
 	opacity: 0.3;
 }
 
@@ -933,17 +947,17 @@ nav ul li:hover {
 	position: absolute;
 	width: 6.75rem;
 	height: 5.82rem;
-	left: -4.85rem;
-	top: 8.85rem;
+	left: -3.85rem;
+	top: 850px;
 	opacity: 0.1;
 	transform: rotate(147deg);
 }
 
 .avatar .bg-5 {
 	position: absolute;
-	width: 8rem;
-	right: 0.77rem;
-	top: 12.27rem;
+	width: 10rem;
+	right: -1.23rem;
+	top: 1000px;
 	opacity: 0.3;
 }
 
@@ -951,23 +965,23 @@ nav ul li:hover {
 	position: absolute;
 	width: 9rem;
 	left: -5.23rem;
-	top: 14.8rem;
+	top: 1500px;
 	opacity: 0.3;
 }
 
 .avatar .bg-7 {
 	position: absolute;
-	width: 6.24rem;
+	width: 4.5rem;
 	right: 1.77rem;
-	top: 18.46rem;
+	top: 1600px;
 	opacity: 0.08;
 }
 
 .avatar .bg-8 {
 	position: absolute;
 	height: 5.28rem;
-	left: 0.07rem;
-	top: 21.65rem;
+	left: -0.43rem;
+	top: 2000px;
 	opacity: 0.1;
 }
 
@@ -975,7 +989,7 @@ nav ul li:hover {
 	position: absolute;
 	height: 7.28rem;
 	right: 1.42rem;
-	top: 35rem;
+	top: 2500px;
 	opacity: 0.3;
 }
 
