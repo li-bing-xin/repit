@@ -881,8 +881,7 @@ nav ul li:hover {
 }
 
 .avatar .transform-wrapper .section-7 .imgs img {
-	max-width: 12vw;
-	/* max-height: 28vh; */
+	width: 12vw;
 	margin: 0 1vw 2vw;
 }
 

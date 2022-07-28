@@ -62,6 +62,7 @@ function createVue() {
 		},
 		watch: {
 			avatarSectionScrollTop(n, o) {
+				console.log(this.animationRange, 99)
 				//第一个板块的进入和离开的动画控制
 				{
 					const h = 30
