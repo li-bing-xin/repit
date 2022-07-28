@@ -36,10 +36,6 @@ body {
 	margin: 0 auto;
 }
 
-.hidden {
-	display: none;
-}
-
 .bold {
 	font-weight: bold;
 }
@@ -488,9 +484,11 @@ nav ul li:hover {
 	position: relative;
 	left: 4.2rem;
 	width: 5.2rem;
+	/* box-sizing: content-box; */
 	padding-left: 1rem;
 	border-right: none;
 	border-left: 1px solid rgba(102, 102, 102);
+	/* align-self: flex-end; */
 }
 
 .roadmap .stage h2 {
@@ -546,10 +544,6 @@ nav ul li:hover {
 	opacity: 0.3;
 }
 
-.avatar {
-	overflow-x: hidden;
-}
-
 .avatar::-webkit-scrollbar {
 	display: none;
 }
@@ -588,19 +582,14 @@ nav ul li:hover {
 }
 
 .avatar .transform-wrapper {
-	width: 100vw;
-	/* height: 100vh; */
+	width: 16rem;
 	margin: auto;
-	/* padding-top: 2rem; */
-	left: 2.2rem;
-	right: 0;
-	z-index: 100;
-	/* bottom: 0; */
-	display: flex;
-	/* align-items: center; */
-	/* overflow-y: hidden; */
-	padding-top: 30vh;
-	/* overflow: hidden; */
+	padding-top: 2rem;
+}
+
+.avatar .transform-wrapper > div {
+	margin-bottom: 2.5rem;
+	/* margin-top: 3rem; */
 }
 
 .avatar .transform-wrapper .imgs {
@@ -611,32 +600,7 @@ nav ul li:hover {
 	height: 5rem;
 }
 
-.avatar .transform-wrapper .imgs img {
-	transition: all 1s;
-}
-
-.avatar .transform-wrapper .leave .imgs img {
-	opacity: 0;
-	transition: all 1s;
-}
-
-.avatar .transform-wrapper .tip {
-	transition: all 1s;
-	white-space: nowrap;
-}
-
-.avatar .transform-wrapper .enter .tip {
-	opacity: 1;
-	/* white-space: nowrap; */
-	transform: translateY(0) !important;
-}
-
-.avatar .transform-wrapper .leave .tip {
-	opacity: 0 !important;
-	transform: translateY(-0.75rem);
-}
-
-.avatar .transform-wrapper .section-1 img:nth-child(1) {
+.avatar .transform-wrapper .imgs:nth-child(1) img:nth-child(1) {
 	width: 1.86rem;
 	height: 3.14rem;
 	position: absolute;
@@ -644,7 +608,7 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-1 img:nth-child(2) {
+.avatar .transform-wrapper .imgs:nth-child(1) img:nth-child(2) {
 	width: 1.66rem;
 	height: 3.26rem;
 	margin-right: 0.4rem;
@@ -653,7 +617,7 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-1 img:nth-child(3) {
+.avatar .transform-wrapper .imgs:nth-child(1) img:nth-child(3) {
 	width: 1.5rem;
 	height: 4.2rem;
 	position: absolute;
@@ -661,7 +625,7 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-1 img:nth-child(4) {
+.avatar .transform-wrapper .imgs:nth-child(1) img:nth-child(4) {
 	width: 2.2rem;
 	height: 3.32rem;
 	position: absolute;
@@ -669,7 +633,7 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-1 img:nth-child(5) {
+.avatar .transform-wrapper .imgs:nth-child(1) img:nth-child(5) {
 	width: 0.96rem;
 	height: 3.36rem;
 	position: absolute;
@@ -677,59 +641,23 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-1 .tip {
-	position: absolute;
-	left: 10rem;
-	top: 2.5rem;
-	transform: translateY(-0.75rem);
-}
-
-.avatar .transform-wrapper .section-1.leave img {
-	transform: translateY(-5rem);
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-1.leave img:nth-child(3) {
-	transform: unset;
-	opacity: 1;
-}
-
-.avatar .transform-wrapper .section-1.opacity-0 img:nth-child(3) {
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-2 img {
-	width: 1.5rem;
-	height: 4.2rem;
-	position: absolute;
-	left: 4.22rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-2 .tip {
-	position: absolute;
-	left: 7rem;
-	top: 2.7rem;
-	transform: translateY(-0.75rem);
-}
-
-.avatar .transform-wrapper .section-3 img:nth-child(1) {
+.avatar .transform-wrapper .imgs:nth-child(2) img:nth-child(1) {
 	width: 1.4rem;
 	height: 4.17rem;
 	position: absolute;
-	left: 4.22rem;
+	left: 0;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-3 img:nth-child(2) {
+.avatar .transform-wrapper .imgs:nth-child(2) img:nth-child(2) {
 	width: 1.49rem;
 	height: 4.26rem;
 	position: absolute;
-	left: 4.22rem;
+	left: 2.1rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-3 img:nth-child(3) {
+.avatar .transform-wrapper .imgs:nth-child(2) img:nth-child(3) {
 	width: 1.5rem;
 	height: 4.2rem;
 	position: absolute;
@@ -737,161 +665,24 @@ nav ul li:hover {
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-3 img:nth-child(4) {
+.avatar .transform-wrapper .imgs:nth-child(2) img:nth-child(4) {
 	width: 1.52rem;
 	height: 4.28rem;
 	position: absolute;
-	left: 4.22rem;
+	left: 6.3rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-3 img:nth-child(5) {
+.avatar .transform-wrapper .imgs:nth-child(2) img:nth-child(5) {
 	width: 1.62rem;
 	height: 4.21rem;
 	position: absolute;
-	left: 4.22rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-3.enter img:nth-child(1) {
-	left: 0;
-}
-
-.avatar .transform-wrapper .section-3.enter img:nth-child(2) {
-	left: 2.1rem;
-}
-
-.avatar .transform-wrapper .section-3.enter img:nth-child(4) {
-	left: 6.3rem;
-}
-
-.avatar .transform-wrapper .section-3.enter img:nth-child(5) {
 	left: 8.3rem;
-}
-
-.avatar .transform-wrapper .section-3.leave img {
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-4 img {
-	width: 1.5rem;
-	height: 4.2rem;
-	position: absolute;
-	left: 4.22rem;
-	bottom: 0;
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-4.enter img {
-	opacity: 1;
-}
-
-.avatar .transform-wrapper .section-4.leave img {
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-5 img {
-	width: 0.96rem;
-	height: 3.36rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0.05rem;
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-5 .tip {
-	position: absolute;
-	left: 7rem;
-	top: 2.6rem;
-	transform: translateY(-0.75rem);
-}
-
-.avatar .transform-wrapper .section-5.enter img {
-	opacity: 1;
-}
-
-.avatar .transform-wrapper .section-5.leave img {
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-6 img:nth-child(1) {
-	height: 3.46rem;
-	position: absolute;
-	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6 img:nth-child(2) {
-	height: 3.46rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-6 img:nth-child(3) {
-	height: 3.46rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-6 img:nth-child(4) {
-	height: 3.46rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-6 img:nth-child(5) {
-	height: 3.46rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0;
-}
-
-.avatar .transform-wrapper .section-6.enter img:nth-child(1) {
-	left: 0;
-}
-
-.avatar .transform-wrapper .section-6.enter img:nth-child(2) {
-	left: 2.2rem;
-}
-
-.avatar .transform-wrapper .section-6.enter img:nth-child(4) {
-	left: 6.5rem;
-}
-
-.avatar .transform-wrapper .section-6.enter img:nth-child(5) {
-	left: 8.7rem;
-}
-
-.avatar .transform-wrapper .section-7 {
-	position: relative;
-	top: -10vh;
-}
-
-.avatar .transform-wrapper .section-7 .imgs {
-	width: 100vw;
-	left: -2.4rem;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 1vw;
-	top: 2rem;
-	justify-content: center;
-}
-
-.avatar .transform-wrapper .section-7 .imgs img {
-	max-width: 12vw;
-	/* max-height: 28vh; */
-	margin: 0 1vw 2vw;
-}
-
-.avatar .transform-wrapper .section-7 .tip {
-	width: 100vw;
-	position: absolute;
-	left: -2.2rem;
-	top: 0.6rem;
-	transform: translateY(-0.75rem);
+.avatar .transform-wrapper > div:nth-child(3) div {
+	margin: 0 0.3rem;
 }
 
 .avatar .transform-wrapper > div:nth-child(3) div span {
@@ -904,6 +695,40 @@ nav ul li:hover {
 	font-size: 0.16rem;
 }
 
+.avatar .transform-wrapper > div:nth-child(2) .avatar-bg {
+	position: absolute;
+	width: 12rem;
+	left: 3rem;
+	top: 0.4rem;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(3) .avatar-bg {
+	position: absolute;
+	width: 12rem;
+	left: calc(50% - 6.1rem);
+	top: 0.4rem;
+	margin: auto;
+}
+
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(1),
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(2),
+.avatar .transform-wrapper > div:nth-child(5) img:nth-child(3) {
+	margin-right: 0.9rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(1) .tip {
+	margin-left: 0.5rem;
+}
+
+.avatar .transform-wrapper > div:nth-child(2) .tip {
+	margin-left: 9.5rem;
+	position: absolute;
+}
+
+.avatar .transform-wrapper > div:nth-child(4) .tip {
+	margin-left: 2rem;
+}
 .avatar .bg-1 {
 	position: absolute;
 	width: 3.52rem;
@@ -919,7 +744,7 @@ nav ul li:hover {
 	right: 0.5rem;
 	top: 3rem;
 	opacity: 0.2;
-	transform: rotate(160deg);
+	transform: rotate(147deg);
 }
 
 .avatar .bg-3 {
@@ -976,7 +801,7 @@ nav ul li:hover {
 	position: absolute;
 	height: 7.28rem;
 	right: 1.42rem;
-	top: 35rem;
+	top: 26.85rem;
 	opacity: 0.3;
 }
 

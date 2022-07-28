@@ -1,9 +1,6 @@
 @font-face {
 	font-family: 'Everett';
-	src: url(./assets/fonts/Everett-Regular.otf);
-	src: url(./assets/fonts/Everett-Jana.otf);
 	src: url(./assets/fonts/Everett-Light.otf);
-	src: url(./assets/fonts/Everett-Medium.otf);
 }
 
 @font-face {
@@ -140,7 +137,7 @@ body {
 }
 
 .button img {
-	width: 0.15rem;
+	width: 0.18rem;
 }
 
 .avatar,
@@ -175,13 +172,17 @@ nav img:first-child {
 	width: 0.2rem;
 }
 
-nav ul {
+.menu {
 	width: 1.2rem;
+	position: fixed;
+	left: 0;
+	top: 0.445rem;
 	background: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(0.2rem);
+	backdrop-filter: blur(0.08rem);
+	z-index: 1000;
 }
 
-nav ul li {
+.menu li {
 	height: 0.35rem;
 	line-height: 0.35rem;
 	padding-left: 0.24rem;
@@ -192,14 +193,14 @@ nav ul li {
 	position: relative;
 }
 
-nav ul li a {
+.menu li a {
 	width: 100%;
 	color: white;
 	display: inline-block;
 	text-transform: uppercase;
 }
 
-nav ul li:before {
+.menu li:before {
 	content: '';
 	width: 4px;
 	height: 4px;
@@ -230,7 +231,7 @@ nav ul li:before {
 .home .head img:last-child {
 	width: 2rem;
 	/* position: absolute; */
-	margin: auto;
+	margin: 0 auto 0.2rem;
 	display: block;
 	/* left: calc(50% - 1rem); */
 }
@@ -247,11 +248,11 @@ nav ul li:before {
 
 .home .swapper {
 	display: inline-flex;
-	max-height: calc(100vh - 3rem);
+	max-height: calc(100vh - 3.34rem);
 	overflow: hidden;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 0rem;
 }
 
 .home .swapper:before {
@@ -278,10 +279,10 @@ nav ul li:before {
 
 .home .bg {
 	position: absolute;
-	left: -2rem;
-	top: -3rem;
+	left: -1.5rem;
+	top: -0.7rem;
 	z-index: -1;
-	width: 6rem;
+	width: 4rem;
 	opacity: 0.5;
 }
 
@@ -321,10 +322,21 @@ nav ul li:before {
 	animation-direction: reverse;
 }
 
+.home .swapper .column:nth-child(3) > .animation-box {
+	animation-duration: 15s;
+}
+
+.home .swapper .column:nth-child(4) > .animation-box {
+	animation-duration: 6s;
+}
+
 .fitness {
 	position: relative;
-	height: 100vh;
+	height: 100vh !important;
 	overflow: hidden;
+	/* padding-top: 0!important; */
+	/* align-items: center; */
+	/* justify-content: center; */
 }
 
 .fitness video {
@@ -338,6 +350,9 @@ nav ul li:before {
 .fitness .head {
 	z-index: 100;
 	white-space: nowrap;
+	/* position: absolute; */
+	/* width: 100%; */
+	/* top: 1rem; */
 }
 
 .fitness .head h2 {
@@ -352,17 +367,18 @@ nav ul li:before {
 	font-style: normal;
 	font-weight: 300;
 	font-size: 0.12rem;
-	line-height: 0.16rem;
+	line-height: 0.2rem;
 	color: rgba(255, 255, 255, 0.6);
-	margin-bottom: 0.2rem;
+	margin: 0.1rem 0;
 }
 
 .team {
-	margin: 0 auto 1rem;
+	/* margin: 0 auto 1rem; */
 	position: relative;
 	height: 100vh;
 	overflow-y: auto;
 	overflow-x: hidden;
+	padding-bottom: 0.3rem;
 }
 
 .team h2 {
@@ -371,12 +387,13 @@ nav ul li:before {
 }
 
 .team .card {
-	width: calc(50% - 0.3rem);
+	width: 1.57rem;
 	margin: 0 0.15rem 0.1rem;
 }
 
 .team .card > img {
 	width: 100%;
+	height: 1.96rem;
 }
 
 .team .card div:last-child {
@@ -412,39 +429,10 @@ nav ul li:before {
 }
 
 .team .bg-1 {
-	width: 1.55rem;
-	position: absolute;
-	left: 3rem;
-	top: -118px;
-	opacity: 0.1;
-	display: none;
-}
-
-.team .bg-2 {
-	position: absolute;
-	width: 1306.05px;
-	height: 1128.55px;
-	left: 1131px;
-	top: 265px;
-	transform: rotate(114.59deg);
-	opacity: 0.1;
-	display: none;
-}
-
-.team .bg-3 {
 	position: absolute;
 	width: 2.4rem;
-	left: -410px;
-	top: -192px;
-	opacity: 0.25;
-	display: none;
-}
-
-.team .bg-4 {
-	position: absolute;
-	width: 2.4rem;
-	left: -0.7rem;
-	top: -0.6rem;
+	left: -0.3rem;
+	top: -0.2rem;
 	opacity: 0.3;
 }
 
@@ -465,6 +453,7 @@ nav ul li:before {
 .roadmap .road {
 	width: 100%;
 	margin-left: 0.3rem;
+	padding-bottom: 0.5rem;
 }
 
 .roadmap .stage {
@@ -482,7 +471,7 @@ nav ul li:before {
 	background-repeat: no-repeat;
 	position: absolute;
 	left: -7px;
-	top: 70px;
+	top: 0.29rem;
 }
 
 .roadmap .stage {
@@ -514,51 +503,31 @@ nav ul li:before {
 .roadmap .stage ul {
 	font-family: 'Noto Sans Mono';
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 100;
 	font-size: 0.12rem;
-	line-height: 0.17rem;
+	line-height: 0.22rem;
 	margin-left: 0.15rem;
 	color: rgba(255, 255, 255, 0.6);
 }
 
 .roadmap .bg-1 {
 	position: absolute;
-	width: 993px;
-	height: 381px;
-	left: -600px;
-	top: 700px;
-	opacity: 0.1;
-	display: none;
-}
-
-.roadmap .bg-2 {
-	position: absolute;
 	width: 1.5rem;
 	right: 0;
 	top: 6.9rem;
 	opacity: 0.1;
 	transform: rotate(-180deg);
-	/* display: none; */
 }
 
-.roadmap .bg-3 {
-	position: absolute;
-	width: 900px;
-	right: -110px;
-	top: 662px;
-	opacity: 0.3;
-	display: none;
-}
-
-.roadmap .bg-4 {
+.roadmap .bg-2 {
 	position: absolute;
 	width: 2.4rem;
 	left: -0.4rem;
-	top: -0.6rem;
+	top: -0.3rem;
 	opacity: 0.3;
 }
 
-.roadmap .bg-5 {
+.roadmap .bg-3 {
 	position: absolute;
 	width: 2.4rem;
 	right: -1rem;
@@ -570,6 +539,7 @@ nav ul li:before {
 	height: 100vh;
 	overflow-y: auto;
 	overflow-x: hidden;
+	padding-bottom: 0.3rem;
 }
 
 .avatar h2 {
@@ -577,8 +547,8 @@ nav ul li:before {
 }
 
 .avatar .items img {
-	margin: 0.115rem 2.5%;
-	width: 20%;
+	margin: 1.49vw;
+	width: 24.5vw;
 }
 
 .avatar .items img:nth-child(13),
@@ -604,13 +574,16 @@ nav ul li:before {
 	font-style: normal;
 	font-weight: 300;
 	font-size: 0.12rem;
-	line-height: 0.16rem;
+	line-height: 0.22rem;
 	color: rgba(255, 255, 255, 0.6);
 }
 
 .avatar .items {
-	margin-top: 0.25rem;
-	transform: scale(1.2);
+	/* margin-top: 0.25rem; */
+	width: 110vw;
+	left: -0.2rem;
+	position: relative;
+	/* transform: scale(1.2); */
 }
 
 .avatar .transform-wrapper > div:nth-child(1),
@@ -777,6 +750,10 @@ nav ul li:before {
 .join {
 	max-height: 5.5rem;
 	padding-top: 0.6rem;
+	padding-bottom: 2rem;
+	height: 100vh;
+	min-height: 100vh;
+	overflow: hidden;
 }
 
 .join h2 {
@@ -807,30 +784,21 @@ nav ul li:before {
 
 .join > img {
 	width: 2.3rem;
-	margin: 0 auto;
+	margin: 0 auto 0.5rem;
 }
 
 .join .bg-1 {
 	position: absolute;
 	right: -0.9rem;
-	top: -1.1rem;
+	top: 6vh;
 	width: 2.3rem;
 	opacity: 0.3;
 }
 
 .join .bg-2 {
 	position: absolute;
-	right: -190px;
-	top: -45px;
-	width: 1100px;
-	opacity: 0.35;
-	display: none;
-}
-
-.join .bg-3 {
-	position: absolute;
 	left: -0.8rem;
-	top: 0.6rem;
+	top: 22vh;
 	width: 1.5rem;
 	opacity: 0.15;
 }
@@ -844,5 +812,7 @@ nav ul li:before {
 	text-align: center;
 	text-transform: uppercase;
 	color: rgba(255, 255, 255, 0.5);
-	margin: 1rem auto 0.25rem;
+	/* margin: 1rem auto 0.25rem; */
+	position: absolute;
+	bottom: 0.6rem;
 }
