@@ -4,20 +4,6 @@ const anchors = ['home', 'fitness', 'avatar', 'roadmap', 'team', 'join']
 let fullpageInstance
 let vueApp
 
-//初始化fullpage，实现幻灯片翻页效果
-function initFullpage() {
-	fullpageInstance = new fullpage('#fullpage', {
-		anchors: anchors,
-		responsiveHeight: 400,
-		fixedElements: '.nav',
-		credits: { enabled: false },
-		normalScrollElements: '.avatar',
-		onLeave: function (origin, destination, direction) {
-			$('.' + destination.anchor).scrollTop(direction === 'up' ? 10 ** 5 : 0)
-		},
-	})
-}
-
 //根据条件判断是否应该重定向到对应分辨率的页面
 function handleRedirect() {
 	const isMobile = /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)
@@ -29,7 +15,6 @@ function handleRedirect() {
 //计算根节点的字体大小， rem布局方案必须
 function computeRootFontsize() {
 	const screenW = window.innerWidth
-	const screenH = window.innerHeight
 	const isPC = screenW >= 720
 	if (isPC) $('html').css('font-size', (screenW / 1920) * 100 + 'px')
 }
@@ -145,6 +130,7 @@ function createVue() {
 				if (this.showMenu) this.toggleMenu()
 				if (key === this.hash) return
 				$('.' + key).scrollTop(0)
+				this.avatarSectionScrollTop = 0
 			},
 			onAvatarSectionScroll(e) {
 				this.handleAvatarSectionScroll(e.deltaY)
@@ -177,6 +163,8 @@ function createVue() {
 						direction === 'up' ? 10 ** 5 : 0
 					)
 					if (destination.anchor === 'avatar') {
+						$('.avatar').scrollTop(0)
+						this.avatarSectionScrollTop = 0
 						this.index = direction === 'up' ? 5 : 0
 					}
 				},
