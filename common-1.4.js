@@ -7,13 +7,9 @@ function initFullpage() {
 		anchors: anchors,
 		responsiveHeight: 400,
 		fixedElements: '.nav',
-		onLeave: function (origin, destination, direction, trigger) {
-			if (direction === 'down') {
-				document.querySelector('.' + destination.anchor).scrollTop = 0
-			}
-			if (direction === 'up') {
-				document.querySelector('.' + destination.anchor).scrollTop = 10 ** 5
-			}
+		credits: { enabled: false },
+		onLeave: function (origin, destination, direction) {
+			$('.' + destination.anchor).scrollTop(direction === 'up' ? 10 ** 5 : 0)
 		},
 	})
 }
@@ -40,11 +36,7 @@ function computeRootFontsize() {
 	const screenW = window.innerWidth
 	const screenH = window.innerHeight
 	const isPC = screenW >= 720
-	if (isPC) {
-		document.querySelector('html').style.fontSize = `${
-			(screenW / 1920) * 100
-		}px`
-	}
+	if (isPC) $('html').css('font-size', (screenW / 1920) * 100 + 'px')
 }
 
 //初始化vue
@@ -67,29 +59,19 @@ function createVue() {
 					const h = 10
 					//0进1
 					if (n >= h && o <= h) {
-						document.querySelector('.avatar .section-1').classList.add('leave')
-						document
-							.querySelector('.avatar .section-1')
-							.classList.remove('enter')
+						$('.avatar .section-1').toggleClass('enter leave')
 					}
 
-					//其他进0
+					//其他进0, 因为用户可能从锚点直接进入该板块
 					if (o >= h && n <= h) {
 						setTimeout(() => {
-							document
-								.querySelectorAll('.transform-wrapper > div')
-								.forEach(item => {
-									item.classList.remove('enter')
-									item.classList.add('leave')
-								})
-							document
-								.querySelector('.avatar .section-1')
-								.classList.add('enter')
+							$('.transform-wrapper > div').each((_, item) => {
+								$(item).removeClass('enter').addClass('leave')
+							})
+							$('.avatar .section-1').addClass('enter')
 						})
 						setTimeout(() => {
-							document
-								.querySelector('.avatar .section-1')
-								.classList.remove('leave')
+							$('.avatar .section-1').removeClass('leave')
 						})
 					}
 				}
@@ -99,165 +81,64 @@ function createVue() {
 					const h = this.animationRange * 1
 					//1进2
 					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-1').classList.add('leave')
-						document
-							.querySelector('.avatar .section-2')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-2').classList.add('enter')
+						$('.avatar .section-1').addClass('leave')
+						$('.avatar .section-2').toggleClass('enter leave')
 					}
 
 					//2进1
 					if (o >= h && n < h) {
-						document.querySelector('.avatar .section-2').classList.add('leave')
-						document
-							.querySelector('.avatar .section-2')
-							.classList.remove('enter')
+						$('.avatar .section-2').toggleClass('enter leave')
 					}
 				}
 
 				//第三个板块的动画控制
 				{
 					const h = this.animationRange * 2
-					//2进3
-					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-2').classList.add('leave')
-						document
-							.querySelector('.avatar .section-2')
-							.classList.remove('enter')
-						document
-							.querySelector('.avatar .section-3')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-3').classList.add('enter')
-						document
-							.querySelector('.avatar .section-1')
-							.classList.add('opacity-0')
-					}
-
-					//3进2
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-2')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-2').classList.add('enter')
-						document
-							.querySelector('.avatar .section-3')
-							.classList.remove('enter')
-						document.querySelector('.avatar .section-3').classList.add('leave')
-						document
-							.querySelector('.avatar .section-1')
-							.classList.remove('opacity-0')
+					if ((n >= h && o < h) || (o >= h && n < h)) {
+						$('.avatar .section-2, .avatar .section-3').toggleClass(
+							'enter leave'
+						)
+						$('.avatar .section-1').toggleClass('opacity-0')
 					}
 				}
 
 				//第四个板块的动画控制
 				{
 					const h = this.animationRange * 3
-					//3进4
-					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-3').classList.add('leave')
-						document
-							.querySelector('.avatar .section-3')
-							.classList.remove('enter')
-						document
-							.querySelector('.avatar .section-4')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-4').classList.add('enter')
-					}
-
-					//4进3
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-3')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-3').classList.add('enter')
-						document
-							.querySelector('.avatar .section-4')
-							.classList.remove('enter')
-						document.querySelector('.avatar .section-4').classList.add('leave')
+					if ((n >= h && o < h) || (o >= h && n < h)) {
+						$('.avatar .section-3, .avatar .section-4').toggleClass(
+							'enter leave'
+						)
 					}
 				}
 
 				//第五个板块的动画控制
 				{
 					const h = this.animationRange * 4
-					//4进5
-					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-4').classList.add('leave')
-						document
-							.querySelector('.avatar .section-4')
-							.classList.remove('enter')
-						document
-							.querySelector('.avatar .section-5')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-5').classList.add('enter')
-					}
-
-					//5进4
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-4')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-4').classList.add('enter')
-						document
-							.querySelector('.avatar .section-5')
-							.classList.remove('enter')
-						document.querySelector('.avatar .section-5').classList.add('leave')
+					if ((n >= h && o < h) || (o >= h && n < h)) {
+						$('.avatar .section-4, .avatar .section-5').toggleClass(
+							'enter leave'
+						)
 					}
 				}
 
 				//第六个板块的动画控制
 				{
 					const h = this.animationRange * 5
-					//5进6
-					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-5').classList.add('leave')
-						document
-							.querySelector('.avatar .section-5')
-							.classList.remove('enter')
-						document
-							.querySelector('.avatar .section-6')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-6').classList.add('enter')
-					}
-
-					//6进5
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-5')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-5').classList.add('enter')
-						document
-							.querySelector('.avatar .section-6')
-							.classList.remove('enter')
-						document.querySelector('.avatar .section-6').classList.add('leave')
+					if ((n >= h && o < h) || (o >= h && n < h)) {
+						$('.avatar .section-5, .avatar .section-6').toggleClass(
+							'enter leave'
+						)
 					}
 				}
 
 				//第七个板块的动画控制
 				{
 					const h = this.animationRange * 6
-					//6进7
-					if (n >= h && o < h) {
-						document.querySelector('.avatar .section-6').classList.add('leave')
-						document
-							.querySelector('.avatar .section-6')
-							.classList.remove('enter')
-						document
-							.querySelector('.avatar .section-7')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-7').classList.add('enter')
-					}
-
-					//7进6
-					if (o >= h && n < h) {
-						document
-							.querySelector('.avatar .section-6')
-							.classList.remove('leave')
-						document.querySelector('.avatar .section-6').classList.add('enter')
-						document
-							.querySelector('.avatar .section-7')
-							.classList.remove('enter')
-						document.querySelector('.avatar .section-7').classList.add('leave')
+					if ((n >= h && o < h) || (o >= h && n < h)) {
+						$('.avatar .section-6, .avatar .section-7').toggleClass(
+							'enter leave'
+						)
 					}
 				}
 			},
@@ -267,8 +148,9 @@ function createVue() {
 				this.showMenu = !this.showMenu
 			},
 			onClickAnchor(key) {
-				document.querySelector('.' + key).scrollTop = 0
 				if (this.showMenu) this.toggleMenu()
+				if (key === this.hash) return
+				$('.' + key).scrollTop(0)
 			},
 		},
 		mounted() {
@@ -304,5 +186,4 @@ window.addEventListener('DOMContentLoaded', function () {
 		height: unset
 	`
 	initFullpage()
-	document.querySelector('.fp-watermark').style.display = 'none' //屏蔽fullpagejs的License文字提示
 })
