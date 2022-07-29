@@ -25,16 +25,6 @@
 				/>
 				<img src="./assets/Logo.svg" alt="Repit!" class="h100" />
 			</div>
-
-			<!-- <ul v-if="showMenu">
-				<li
-					v-for="anchor in anchors"
-					:key="anchor"
-					@click="onClickAnchor(anchor)"
-				>
-					<a :href="'#' + anchor">-&nbsp;&nbsp;{{anchor}}</a>
-				</li>
-			</ul> -->
 		</nav>
 
 		<ul class="menu" v-if="showMenu">
@@ -123,10 +113,18 @@
 			</section>
 
 			<section class="avatar relative section" data-anchor="avatar">
-				<h2 class="gradient-text section-title">Your Evolvable NFT Avatar</h2>
+				<h2
+					class="gradient-text section-title"
+					:style="`transform: translateY(${avatarSectionScrollTop}px)`"
+				>
+					Your Evolvable NFT Avatar
+				</h2>
 
-				<div class="transform-wrapper">
-					<div class="flex flex-center">
+				<div
+					class="transform-wrapper relative"
+					:style="`transform: translateY(${avatarSectionScrollTop}px)`"
+				>
+					<div class="section-1 absolute enter">
 						<div class="imgs">
 							<img src="./assets/avatars/img_for_web_1.png" />
 							<img src="./assets/avatars/img_for_web_4.png" />
@@ -134,8 +132,9 @@
 							<img src="./assets/avatars/img_for_web_2.png" />
 							<img src="./assets/avatars/img_for_web_5.png" />
 						</div>
+
 						<div class="tip">
-							<p>Own A Unique Avatar</p>
+							<p>Own a unique avatar</p>
 							<p>
 								Every avatar is a one-of-a-kind,<br />
 								breedable and evolvable NFT
@@ -143,56 +142,66 @@
 						</div>
 					</div>
 
-					<div class="flex flex-center relative">
+					<div class="section-2 absolute leave">
 						<div class="imgs">
-							<img src="./assets/avatars/img_for_web_1.png" class="opacity-0" />
-							<img src="./assets/avatars/img_for_web_4.png" class="opacity-0" />
 							<img src="./assets/avatars/img_for_web_3.png" />
-							<img src="./assets/avatars/img_for_web_2.png" class="opacity-0" />
-							<img src="./assets/avatars/img_for_web_5.png" class="opacity-0" />
+
+							<img src="./assets/bg_components/Grid.svg" class="bg grid" />
 						</div>
-						<div class="tip relative">
-							<p>Bodybuild Your Avatar into Ideal Physique</p>
+
+						<div class="tip">
+							<p>Bodybuild your avatar into ideal physique</p>
 							<p>
 								Every bit of your physical workout will <br />
 								contribute to shaping your avatar
 							</p>
 						</div>
-
-						<img src="./assets/bg_components/Grid.svg" class="avatar-bg" />
 					</div>
 
-					<div class="flex flex-center relative">
-						<div class="flex flex-dir-column flex-center">
-							<img src="./assets/avatars/img_for_web_3.png" />
-							<span>SKINNY</span>
-						</div>
-						<div class="flex flex-dir-column flex-center">
-							<img src="./assets/avatars/img_for_web_3.png" />
-							<span>CHUBBY</span>
-						</div>
-						<div class="flex flex-dir-column flex-center">
-							<img src="./assets/avatars/img_for_web_3.png" />
-							<span>AVERAGE</span>
-						</div>
-						<div class="flex flex-dir-column flex-center">
-							<img src="./assets/avatars/img_for_web_3.png" />
-							<span>RIPPED</span>
-						</div>
-						<div class="flex flex-dir-column flex-center">
-							<img src="./assets/avatars/img_for_web_3.png" />
-							<span>BULKY</span>
+					<div class="section-3 absolute leave">
+						<div class="imgs">
+							<div>
+								<img src="./assets/avatars/img_for_web_3_1.png" />
+								<div class="name">SKINNY</div>
+							</div>
+							<div>
+								<img src="./assets/avatars/img_for_web_3_2.png" />
+								<div class="name">CHUBBY</div>
+							</div>
+							<div>
+								<img src="./assets/avatars/img_for_web_3.png" />
+								<div class="name">AVERAGE</div>
+							</div>
+
+							<div>
+								<img src="./assets/avatars/img_for_web_3_3.png" />
+								<div class="name">RIPPED</div>
+							</div>
+
+							<div>
+								<img src="./assets/avatars/img_for_web_3_4.png" />
+								<div class="name">BULKY</div>
+							</div>
+
+							<img src="./assets/bg_components/Grid.svg" class="bg grid" />
 						</div>
 
-						<img src="./assets/bg_components/Grid.svg" class="avatar-bg" />
+						<div class="tip">
+							<p>Bodybuild your avatar into ideal physique</p>
+							<p>
+								Every bit of your physical workout will <br />
+								contribute to shaping your avatar
+							</p>
+						</div>
 					</div>
 
-					<div class="flex flex-center relative">
+					<div class="section-4 absolute leave">
 						<div class="imgs">
 							<img src="./assets/avatars/img_for_web_5.png" />
 						</div>
+
 						<div class="tip">
-							<p>Dress up Avatar in Your Own Style</p>
+							<p>Dress up avatar in your own style</p>
 							<p>
 								Limited-edition digital fashion <br />
 								apparel and accessory NFTs
@@ -200,46 +209,58 @@
 						</div>
 					</div>
 
-					<div class="flex flex-center relative">
-						<img src="./assets/avatars/资源 1.png" />
-						<img src="./assets/avatars/资源 2.png" />
-						<img src="./assets/avatars/资源 3.png" />
-						<img src="./assets/avatars/资源 4.png" />
-						<img src="./assets/avatars/资源 5.png" />
+					<div class="section-5 absolute leave">
+						<div class="imgs">
+							<img src="./assets/avatars/资源 1.png" />
+							<img src="./assets/avatars/资源 2.png" />
+							<img src="./assets/avatars/资源 3.png" />
+							<img src="./assets/avatars/资源 4.png" />
+							<img src="./assets/avatars/资源 5.png" />
+						</div>
+
+						<div class="tip">
+							<p>Dress up avatar in your own style</p>
+							<p>
+								Limited-edition digital fashion <br />
+								apparel and accessory NFTs
+							</p>
+						</div>
+					</div>
+
+					<div class="section-6 absolute leave">
+						<div class="imgs">
+							<img src="./assets/heros_with_bg/item_001.png" />
+							<img src="./assets/heros_with_bg/item_002.png" />
+							<img src="./assets/heros_with_bg/item_003.png" />
+							<img src="./assets/heros_with_bg/item_004.png" />
+							<img src="./assets/heros_with_bg/item_005.png" />
+							<img src="./assets/heros_with_bg/item_006.png" />
+							<img src="./assets/heros_with_bg/item_007.png" />
+							<img src="./assets/heros_with_bg/item_008.png" />
+							<img src="./assets/heros_with_bg/item_009.png" />
+							<img src="./assets/heros_with_bg/item_010.png" />
+							<img src="./assets/heros_with_bg/item_011.png" />
+							<img src="./assets/heros_with_bg/item_012.png" />
+						</div>
+
+						<div class="center tip">
+							<p>Your avatar, your way</p>
+							<p>Breed an avatar with style and attitude</p>
+						</div>
 					</div>
 				</div>
 
-				<div class="center tip">
-					<p>Your Avatar, Your Way</p>
-					<p>Breed an avatar with style and attitude</p>
+				<div class="bg">
+					<img src="./assets/bg_components/Brand_Pattern_02.svg" class="bg-1" />
+					<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-2" />
+					<img src="./assets/bg_components/VI_Grandient_01.png" class="bg-3" />
+					<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-4" />
+					<!-- <img src="./assets/bg_components/VI_Grandient_02.png" class="bg-5" />
+					<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-6" />
+					<img src="./assets/bg_components/Brand_Pattern_04.svg" class="bg-7" />
+					<img src="./assets/bg_components/Brand_Pattern_03.svg" class="bg-8" />
+					<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-9" /> -->
 				</div>
-
-				<div class="flex justify-between flex-wrap items">
-					<img src="./assets/heros_with_bg/item_001.png" />
-					<img src="./assets/heros_with_bg/item_002.png" />
-					<img src="./assets/heros_with_bg/item_003.png" />
-					<img src="./assets/heros_with_bg/item_004.png" />
-					<img src="./assets/heros_with_bg/item_005.png" />
-					<img src="./assets/heros_with_bg/item_006.png" />
-					<img src="./assets/heros_with_bg/item_007.png" />
-					<img src="./assets/heros_with_bg/item_008.png" />
-					<img src="./assets/heros_with_bg/item_009.png" />
-					<img src="./assets/heros_with_bg/item_010.png" />
-					<img src="./assets/heros_with_bg/item_011.png" />
-					<img src="./assets/heros_with_bg/item_012.png" />
-					<img src="./assets/heros_with_bg/item_013.png" />
-					<img src="./assets/heros_with_bg/item_014.png" />
-				</div>
-
-				<img src="./assets/bg_components/Brand_Pattern_02.svg" class="bg-1" />
-				<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-2" />
-				<img src="./assets/bg_components/VI_Grandient_01.png" class="bg-3" />
-				<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-4" />
-				<img src="./assets/bg_components/VI_Grandient_02.png" class="bg-5" />
-				<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-6" />
-				<img src="./assets/bg_components/Brand_Pattern_04.svg" class="bg-7" />
-				<img src="./assets/bg_components/Brand_Pattern_03.svg" class="bg-8" />
-				<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-9" />
 			</section>
 
 			<section class="roadmap section" data-anchor="roadmap">

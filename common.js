@@ -1,13 +1,17 @@
 //锚点
 const anchors = ['home', 'fitness', 'avatar', 'roadmap', 'team', 'join']
 
+let fullpageInstance
+let vueApp
+
 //初始化fullpage，实现幻灯片翻页效果
 function initFullpage() {
-	new fullpage('#fullpage', {
+	fullpageInstance = new fullpage('#fullpage', {
 		anchors: anchors,
 		responsiveHeight: 400,
 		fixedElements: '.nav',
 		credits: { enabled: false },
+		normalScrollElements: '.avatar',
 		onLeave: function (origin, destination, direction) {
 			$('.' + destination.anchor).scrollTop(direction === 'up' ? 10 ** 5 : 0)
 		},
@@ -16,19 +20,10 @@ function initFullpage() {
 
 //根据条件判断是否应该重定向到对应分辨率的页面
 function handleRedirect() {
-	const screenW = window.innerWidth
-	const screenH = window.innerHeight
+	const isMobile = /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)
 
-	const v = 720
-
-	if (location.href.includes('file')) return
-
-	if (screenW <= v && !location.href.includes('/mobile.html')) {
+	if (isMobile && !location.href.includes('/mobile.html'))
 		location.href = location.origin + '/mobile.html'
-	}
-	if (screenW > v && location.href.includes('/mobile.html')) {
-		location.href = location.origin + '/index.html'
-	}
 }
 
 //计算根节点的字体大小， rem布局方案必须
@@ -41,29 +36,34 @@ function computeRootFontsize() {
 
 //初始化vue
 function createVue() {
-	const app = {
+	const App = {
 		data() {
 			return {
 				anchors: anchors,
 				hash: '', //当前板块的hash，与锚点对应起来
 				showMenu: false, //仅用于移动端，控制菜单栏的显隐
+
+				//以下几个变量都用于avatar板块
 				avatarSectionScrollTop: 0, // avatar板块的滚动高度，根据该高度实时计算板块中元素的位置
-				triggerHeight: [0, 500, 400, 600],
-				animationRange: 350,
+				avatarSectionAnimationSpeed: 350,
+				avatarSectionScrollLock: false, //avatar板块限制1秒内只能滚动一屏
+				index: 0,
+				touchStartY: 0,
 			}
 		},
 		watch: {
-			avatarSectionScrollTop(n, o) {
-				//第一个板块的进入和离开的动画控制
+			index(n, o) {
+				//第二个板块的进入和离开的动画控制
 				{
-					const h = 10
 					//0进1
-					if (n >= h && o <= h) {
-						$('.avatar .section-1').toggleClass('enter leave')
+					if (n === 1 && o === 0) {
+						$('.avatar .section-1, .avatar .section-2').toggleClass(
+							'enter leave'
+						)
 					}
 
 					//其他进0, 因为用户可能从锚点直接进入该板块
-					if (o >= h && n <= h) {
+					if (n === 0) {
 						setTimeout(() => {
 							$('.transform-wrapper > div').each((_, item) => {
 								$(item).removeClass('enter').addClass('leave')
@@ -72,73 +72,67 @@ function createVue() {
 						})
 						setTimeout(() => {
 							$('.avatar .section-1').removeClass('leave')
+							$('.avatar .section-1').removeClass('opacity-0')
 						})
-					}
-				}
-
-				//第二个板块的动画控制
-				{
-					const h = this.animationRange * 1
-					//1进2
-					if (n >= h && o < h) {
-						$('.avatar .section-1').addClass('leave')
-						$('.avatar .section-2').toggleClass('enter leave')
-					}
-
-					//2进1
-					if (o >= h && n < h) {
-						$('.avatar .section-2').toggleClass('enter leave')
+						// $('.avatar .section-2 .tip, .avatar .section-3 .tip').removeClass(
+						// 	'opacity-1'
+						// )
 					}
 				}
 
 				//第三个板块的动画控制
-				{
-					const h = this.animationRange * 2
-					if ((n >= h && o < h) || (o >= h && n < h)) {
-						$('.avatar .section-2, .avatar .section-3').toggleClass(
-							'enter leave'
-						)
-						$('.avatar .section-1').toggleClass('opacity-0')
-					}
+				if ((n === 2 && o === 1) || (o === 2 && n === 1)) {
+					$('.avatar .section-2, .avatar .section-3').toggleClass('enter leave')
+					// $('.avatar .section-2 .tip, .avatar .section-3 .tip').addClass(
+					// 	'opacity-1'
+					// )
+					// $('.avatar .section-4 .tip, .avatar .section-5 .tip').removeClass(
+					// 	'opacity-1'
+					// )
 				}
 
 				//第四个板块的动画控制
-				{
-					const h = this.animationRange * 3
-					if ((n >= h && o < h) || (o >= h && n < h)) {
-						$('.avatar .section-3, .avatar .section-4').toggleClass(
-							'enter leave'
-						)
-					}
+				if ((n === 3 && o === 2) || (o === 3 && n === 2)) {
+					$('.avatar .section-3, .avatar .section-4').toggleClass('enter leave')
+					$('.avatar .section-1').toggleClass('opacity-0')
+					// $('.avatar .section-2 .tip, .avatar .section-3 .tip').removeClass(
+					// 	'opacity-1'
+					// )
+					// $('.avatar .section-4 .tip, .avatar .section-5 .tip').removeClass(
+					// 	'opacity-1'
+					// )
 				}
 
 				//第五个板块的动画控制
-				{
-					const h = this.animationRange * 4
-					if ((n >= h && o < h) || (o >= h && n < h)) {
-						$('.avatar .section-4, .avatar .section-5').toggleClass(
-							'enter leave'
-						)
-					}
+				if ((n === 4 && o === 3) || (o === 4 && n === 3)) {
+					$('.avatar .section-4, .avatar .section-5').toggleClass('enter leave')
+					// $('.avatar .section-4 .tip, .avatar .section-5 .tip').addClass(
+					// 	'opacity-1'
+					// )
 				}
 
 				//第六个板块的动画控制
 				{
-					const h = this.animationRange * 5
-					if ((n >= h && o < h) || (o >= h && n < h)) {
+					if (o === 5 && n === 4) {
 						$('.avatar .section-5, .avatar .section-6').toggleClass(
 							'enter leave'
 						)
 					}
-				}
 
-				//第七个板块的动画控制
-				{
-					const h = this.animationRange * 6
-					if ((n >= h && o < h) || (o >= h && n < h)) {
-						$('.avatar .section-6, .avatar .section-7').toggleClass(
-							'enter leave'
-						)
+					if (n === 5) {
+						setTimeout(() => {
+							$('.transform-wrapper > div').each((_, item) => {
+								$(item).removeClass('enter').addClass('leave')
+							})
+							$('.avatar .section-6').addClass('enter')
+						})
+						setTimeout(() => {
+							$('.avatar .section-6').removeClass('leave')
+							$('.avatar .section-1').addClass('opacity-0')
+						})
+						// $('.avatar .section-4 .tip, .avatar .section-5 .tip').removeClass(
+						// 	'opacity-1'
+						// )
 					}
 				}
 			},
@@ -152,31 +146,81 @@ function createVue() {
 				if (key === this.hash) return
 				$('.' + key).scrollTop(0)
 			},
+			onAvatarSectionScroll(e) {
+				this.handleAvatarSectionScroll(e.deltaY)
+			},
+			handleAvatarSectionScroll(scrollLen) {
+				if (Math.abs(scrollLen) >= 20 && !this.avatarSectionScrollLock) {
+					let t = scrollLen > 0 ? this.index + 1 : this.index - 1
+
+					if (t < 0) fullpageInstance.moveSectionUp()
+					if (t > 5) fullpageInstance.moveSectionDown()
+
+					this.index = Math.min(5, Math.max(0, t))
+
+					this.avatarSectionScrollLock = true
+					setTimeout(() => {
+						this.avatarSectionScrollLock = false
+					}, 1000)
+				}
+			},
 		},
 		mounted() {
+			fullpageInstance = new fullpage('#fullpage', {
+				anchors: anchors,
+				responsiveHeight: 400,
+				fixedElements: '.nav',
+				credits: { enabled: false },
+				normalScrollElements: '.avatar',
+				onLeave: (origin, destination, direction) => {
+					$('.' + destination.anchor).scrollTop(
+						direction === 'up' ? 10 ** 5 : 0
+					)
+					if (destination.anchor === 'avatar') {
+						this.index = direction === 'up' ? 5 : 0
+					}
+				},
+			})
+
+			window.oncontextmenu = function (e) {
+				e.preventDefault()
+			}
+
 			window.addEventListener('hashchange', () => {
 				this.hash = location.hash.slice(1)
 			})
 
 			window.addEventListener('resize', () => {
-				// handleRedirect()
 				computeRootFontsize()
 			})
 
+			const avatar = document.querySelector('.avatar')
+
 			//当处于avatar板块内时，监听滚动并记录滚动高度
-			document.querySelector('.avatar').addEventListener('scroll', e => {
+			avatar.addEventListener('scroll', e => {
 				this.avatarSectionScrollTop = e.target.scrollTop
+			})
+
+			avatar.addEventListener('wheel', this.onAvatarSectionScroll)
+
+			avatar.addEventListener('touchstart', e => {
+				this.touchStartY = e.changedTouches[0].pageY
+			})
+
+			avatar.addEventListener('touchend', e => {
+				this.handleAvatarSectionScroll(
+					this.touchStartY - e.changedTouches[0].pageY
+				)
 			})
 		},
 	}
 
-	Vue.createApp(app).mount('#app')
+	Vue.createApp(App).mount('#app')
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-	// handleRedirect()
+	handleRedirect()
 	computeRootFontsize()
-	createVue()
 	//初始化锚点
 	location.hash = 'home'
 	//屏蔽刚进入页面时闪现的滚动条
@@ -185,5 +229,5 @@ window.addEventListener('DOMContentLoaded', function () {
 		overflow: unset;
 		height: unset
 	`
-	initFullpage()
+	createVue()
 })

@@ -117,8 +117,7 @@
 
 				<div
 					class="transform-wrapper relative"
-					:style="`transform: translateY(${avatarSectionScrollTop >= animationRange * 6 ? animationRange * 6 : avatarSectionScrollTop}px)`"
-					draggable="false"
+					:style="`transform: translateY(${avatarSectionScrollTop}px)`"
 				>
 					<div class="section-1 absolute enter">
 						<div class="imgs">
@@ -193,12 +192,6 @@
 
 					<div class="section-4 absolute leave">
 						<div class="imgs">
-							<img src="./assets/avatars/img_for_web_3.png" />
-						</div>
-					</div>
-
-					<div class="section-5 absolute leave">
-						<div class="imgs">
 							<img src="./assets/avatars/img_for_web_5.png" />
 						</div>
 
@@ -211,7 +204,7 @@
 						</div>
 					</div>
 
-					<div class="section-6 absolute leave">
+					<div class="section-5 absolute leave">
 						<div class="imgs">
 							<img src="./assets/avatars/资源 1.png" />
 							<img src="./assets/avatars/资源 2.png" />
@@ -229,7 +222,7 @@
 						</div>
 					</div>
 
-					<div class="section-7 absolute leave">
+					<div class="section-6 absolute leave">
 						<div class="imgs">
 							<img src="./assets/heros_with_bg/item_001.png" />
 							<img src="./assets/heros_with_bg/item_002.png" />
@@ -254,19 +247,17 @@
 					</div>
 				</div>
 
-				<img src="./assets/bg_components/Brand_Pattern_02.svg" class="bg-1" />
-				<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-2" />
-				<img src="./assets/bg_components/VI_Grandient_01.png" class="bg-3" />
-				<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-4" />
-				<img src="./assets/bg_components/VI_Grandient_02.png" class="bg-5" />
-				<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-6" />
-				<img src="./assets/bg_components/Brand_Pattern_04.svg" class="bg-7" />
-				<img src="./assets/bg_components/Brand_Pattern_03.svg" class="bg-8" />
-				<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-9" />
-				<div
-					class="pos"
-					:style="`height: calc(100vh + ${animationRange * 6}px)`"
-				></div>
+				<div class="bg">
+					<img src="./assets/bg_components/Brand_Pattern_02.svg" class="bg-1" />
+					<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-2" />
+					<img src="./assets/bg_components/VI_Grandient_01.png" class="bg-3" />
+					<img src="./assets/bg_components/Brand_Pattern_01.svg" class="bg-4" />
+					<!-- <img src="./assets/bg_components/VI_Grandient_02.png" class="bg-5" />
+					<img src="./assets/bg_components/VI_Grandient_03.png" class="bg-6" />
+					<img src="./assets/bg_components/Brand_Pattern_04.svg" class="bg-7" />
+					<img src="./assets/bg_components/Brand_Pattern_03.svg" class="bg-8" />
+					<img src="./assets/bg_components/VI_Grandient_04.png" class="bg-9" /> -->
+				</div>
 			</section>
 
 			<section class="roadmap section" data-anchor="roadmap">

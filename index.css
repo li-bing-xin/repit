@@ -105,7 +105,6 @@ body {
 
 .overflow-hidden {
 	overflow: hidden;
-	/* text-align: center; */
 }
 
 .opacity-0 {
@@ -237,7 +236,6 @@ nav ul li:hover {
 
 .home .head p {
 	width: 4.8rem;
-	/* height: 0.72rem; */
 	margin-left: 1rem;
 	font-family: 'Everett';
 	font-style: normal;
@@ -277,7 +275,7 @@ nav ul li:hover {
 }
 
 .home .swapper .column .animation-box {
-	animation: 13s linear 0ms infinite normal none running infinityScroll;
+	animation: 17s linear 0ms infinite normal none running infinityScroll;
 }
 
 .home .swapper .column:nth-child(2n) > .animation-box {
@@ -285,11 +283,11 @@ nav ul li:hover {
 }
 
 .home .swapper .column:nth-child(2) > .animation-box {
-	animation-duration: 18s;
+	animation-duration: 23s;
 }
 
 .home .swapper .column:nth-child(3) > .animation-box {
-	animation-duration: 16s;
+	animation-duration: 20s;
 }
 
 .home .bg {
@@ -311,11 +309,6 @@ nav ul li:hover {
 	max-width: 100%;
 	max-height: 100%;
 	margin: auto;
-	/* object-fit: none; */
-	/* top: 0; */
-	/* bottom: 0; */
-	/* position: relative; */
-	width: 100%;
 }
 
 .fitness .head {
@@ -377,8 +370,6 @@ nav ul li:hover {
 }
 
 .team .card {
-	/* width: 28.33%; */
-	/* max-width: 3.18rem; */
 	margin: 0 2.5% 0.2rem;
 }
 
@@ -415,7 +406,6 @@ nav ul li:hover {
 }
 
 .team .members {
-	/* max-width: 10rem; */
 	margin: 0 auto;
 	width: 70vw;
 	justify-content: center;
@@ -447,14 +437,10 @@ nav ul li:hover {
 .roadmap .road {
 	width: 8.4rem;
 	margin: 0 auto;
-	/* max-height: calc(100vh - 3rem); */
-	/* overflow-y: auto; */
 	z-index: 100;
 	padding-bottom: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
-	/* align-items: center; */
 }
 
 .roadmap .stage {
@@ -552,18 +538,21 @@ nav ul li:hover {
 }
 
 .avatar {
-	overflow-x: hidden;
+	overflow: hidden !important;
+	user-select: none;
+	height: 100vh;
 }
 
 .avatar::-webkit-scrollbar {
 	display: none;
 }
 
-.avatar .pos {
+.avatar > .bg {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 	position: absolute;
-	content: '';
-	width: 1px;
-	z-index: -1;
+	left: 0;
 	top: 0;
 }
 
@@ -595,7 +584,6 @@ nav ul li:hover {
 	left: 2.2rem;
 	top: 10vh;
 	z-index: 100;
-	/* display: flex; */
 	height: 50vh;
 	min-height: 5rem;
 }
@@ -629,10 +617,12 @@ nav ul li:hover {
 
 .avatar .transform-wrapper .enter .tip {
 	opacity: 1;
+	transition-delay: 0.5s;
 }
 
 .avatar .transform-wrapper .leave .tip {
 	opacity: 0 !important;
+	transition-delay: 0s;
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(1) {
@@ -815,21 +805,19 @@ nav ul li:hover {
 	top: 2rem;
 }
 
-.avatar .transform-wrapper .section-3.enter .tip {
-	transition-delay: 0.5s;
-}
-
-.avatar .transform-wrapper .section-3.leave .tip {
-	transition-delay: 0s;
-}
-
 .avatar .transform-wrapper .section-4 img {
-	width: 1.5rem;
-	height: 4.2rem;
+	width: 0.96rem;
+	height: 3.36rem;
 	position: absolute;
-	left: 4.22rem;
-	bottom: 0;
+	left: 4.34rem;
+	bottom: 0.05rem;
 	opacity: 0;
+}
+
+.avatar .transform-wrapper .section-4 .tip {
+	position: absolute;
+	left: 7rem;
+	top: 2rem;
 }
 
 .avatar .transform-wrapper .section-4.enter img {
@@ -840,100 +828,77 @@ nav ul li:hover {
 	opacity: 0;
 }
 
-.avatar .transform-wrapper .section-5 img {
-	width: 0.96rem;
-	height: 3.36rem;
-	position: absolute;
-	left: 4.34rem;
-	bottom: 0.05rem;
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-5 .tip {
-	position: absolute;
-	left: 7rem;
-	top: 2rem;
-}
-
-.avatar .transform-wrapper .section-5.enter img {
-	opacity: 1;
-}
-
-.avatar .transform-wrapper .section-5.leave img {
-	opacity: 0;
-}
-
-.avatar .transform-wrapper .section-6 img:nth-child(1) {
+.avatar .transform-wrapper .section-5 img:nth-child(1) {
 	height: 3.46rem;
 	position: absolute;
 	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6 img:nth-child(2) {
+.avatar .transform-wrapper .section-5 img:nth-child(2) {
 	height: 3.46rem;
 	position: absolute;
 	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6 img:nth-child(3) {
+.avatar .transform-wrapper .section-5 img:nth-child(3) {
 	height: 3.46rem;
 	position: absolute;
 	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6 img:nth-child(4) {
+.avatar .transform-wrapper .section-5 img:nth-child(4) {
 	height: 3.46rem;
 	position: absolute;
 	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6 img:nth-child(5) {
+.avatar .transform-wrapper .section-5 img:nth-child(5) {
 	height: 3.46rem;
 	position: absolute;
 	left: 4.34rem;
 	bottom: 0;
 }
 
-.avatar .transform-wrapper .section-6.enter img:nth-child(1) {
+.avatar .transform-wrapper .section-5.enter img:nth-child(1) {
 	left: 0;
 }
 
-.avatar .transform-wrapper .section-6.enter img:nth-child(2) {
+.avatar .transform-wrapper .section-5.enter img:nth-child(2) {
 	left: 2.2rem;
 }
 
-.avatar .transform-wrapper .section-6.enter img:nth-child(4) {
+.avatar .transform-wrapper .section-5.enter img:nth-child(4) {
 	left: 6.5rem;
 }
 
-.avatar .transform-wrapper .section-6.enter img:nth-child(5) {
+.avatar .transform-wrapper .section-5.enter img:nth-child(5) {
 	left: 8.7rem;
 }
 
-.avatar .transform-wrapper .section-6 .tip {
+.avatar .transform-wrapper .section-5 .tip {
 	position: absolute;
 	left: 11rem;
 	top: 2rem;
 }
 
-.avatar .transform-wrapper .section-6.enter .tip {
+.avatar .transform-wrapper .section-5.enter .tip {
 	transition-delay: 0.5s;
 }
 
-.avatar .transform-wrapper .section-6.leave .tip {
+.avatar .transform-wrapper .section-5.leave .tip {
 	transition-delay: 0s;
 }
 
-.avatar .transform-wrapper .section-7 {
+.avatar .transform-wrapper .section-6 {
 	position: relative;
 	top: -1.5rem;
 }
 
-.avatar .transform-wrapper .section-7 .imgs {
+.avatar .transform-wrapper .section-6 .imgs {
 	width: 100vw;
 	height: unset;
 	left: -2.4rem;
@@ -945,13 +910,13 @@ nav ul li:hover {
 	padding-bottom: 0.5rem;
 }
 
-.avatar .transform-wrapper .section-7 .imgs img {
+.avatar .transform-wrapper .section-6 .imgs img {
 	width: 2.4rem;
 	height: 3.5rem;
 	margin: 0 0.1rem 0.2rem;
 }
 
-.avatar .transform-wrapper .section-7 .tip {
+.avatar .transform-wrapper .section-6 .tip {
 	width: 100vw;
 	position: absolute;
 	left: -2.2rem;
