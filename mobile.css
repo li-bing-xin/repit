@@ -36,6 +36,7 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
+	touch-action: none;
 }
 
 .bold {
@@ -304,11 +305,11 @@ nav img:first-child {
 
 @keyframes infinityScroll {
 	0% {
-		transform: translateY(0);
+		transform: translate3d(0 0 0);
 	}
 
 	100% {
-		transform: translateY(-50%);
+		transform: translate3d(0 -50% 0);
 	}
 }
 
@@ -667,7 +668,7 @@ nav img:first-child {
 }
 
 .avatar .transform-wrapper .section-1.leave img {
-	transform: translateY(-5rem);
+	transform: translate3d(0 -5rem 0);
 	opacity: 0;
 }
 

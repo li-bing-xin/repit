@@ -174,7 +174,7 @@ function createVue() {
 		},
 		mounted() {
 			window.oncontextmenu = function (e) {
-				e.preventDefault()
+				// e.preventDefault()
 			}
 
 			window.addEventListener('hashchange', () => {
