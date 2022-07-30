@@ -6,6 +6,8 @@ let vueApp
 
 function initFullpage() {
 	fullpageInstance = new fullpage('#fullpage', {
+		css3: false,
+		fadingEffect: true,
 		anchors: anchors,
 		responsiveHeight: 400,
 		fixedElements: '.nav',
