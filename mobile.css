@@ -257,6 +257,7 @@ nav img:first-child {
 	position: absolute;
 	left: 0;
 	bottom: 0rem;
+	transition: opacity 1s;
 }
 
 .home .swapper:before {

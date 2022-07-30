@@ -6,8 +6,6 @@ let vueApp
 
 function initFullpage() {
 	fullpageInstance = new fullpage('#fullpage', {
-		css3: false,
-		fadingEffect: true,
 		anchors: anchors,
 		responsiveHeight: 400,
 		fixedElements: '.nav',
@@ -44,7 +42,7 @@ function createVue() {
 		data() {
 			return {
 				anchors: anchors,
-				hash: '', //当前板块的hash，与锚点对应起来
+				hash: 'home', //当前板块的hash，与锚点对应起来
 				showMenu: false, //仅用于移动端，控制菜单栏的显隐
 
 				//以下几个变量都用于avatar板块
