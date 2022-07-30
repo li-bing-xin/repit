@@ -565,6 +565,7 @@ nav ul li:hover {
 	font-size: 0.32rem;
 	line-height: 0.44rem;
 	margin-bottom: 0.15rem;
+	white-space: nowrap;
 }
 
 .avatar .tip > p:last-child {
@@ -702,7 +703,7 @@ nav ul li:hover {
 	position: absolute;
 	left: 7rem;
 	top: 1rem;
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .avatar .transform-wrapper .section-2 .bg {
@@ -808,7 +809,7 @@ nav ul li:hover {
 	position: absolute;
 	left: 10.5rem;
 	top: 1rem;
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .avatar .transform-wrapper .section-4 img {
@@ -889,7 +890,7 @@ nav ul li:hover {
 	position: absolute;
 	left: 11rem;
 	top: 1rem;
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .avatar .transform-wrapper .section-5.enter .tip {
