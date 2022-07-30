@@ -177,9 +177,9 @@ function createVue() {
 		mounted() {
 			fullpageInstance = new fullpage('#fullpage', {
 				anchors: anchors,
-				easingcss3: 'linear',
+				// easingcss3: 'linear',
 				responsiveHeight: 400,
-				scrollingSpeed: 500,
+				scrollingSpeed: 600,
 				fixedElements: '.nav',
 				credits: { enabled: false },
 				normalScrollElements: '.avatar',
