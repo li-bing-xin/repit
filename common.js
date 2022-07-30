@@ -4,6 +4,23 @@ const anchors = ['home', 'fitness', 'avatar', 'roadmap', 'team', 'join']
 let fullpageInstance
 let vueApp
 
+function initFullpage() {
+	fullpageInstance = new fullpage('#fullpage', {
+		anchors: anchors,
+		responsiveHeight: 400,
+		fixedElements: '.nav',
+		credits: { enabled: false },
+		normalScrollElements: '.avatar',
+		onLeave: (origin, destination, direction) => {
+			$('.' + destination.anchor).scrollTop(direction === 'up' ? 10 ** 5 : 0)
+			if (destination.anchor === 'avatar') {
+				$('.avatar').scrollTop(0)
+				vueApp.methods.tt(direction)
+			}
+		},
+	})
+}
+
 //根据条件判断是否应该重定向到对应分辨率的页面
 function handleRedirect() {
 	const isMobile = /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)
@@ -21,7 +38,7 @@ function computeRootFontsize() {
 
 //初始化vue
 function createVue() {
-	const App = {
+	vueApp = {
 		data() {
 			return {
 				anchors: anchors,
@@ -150,26 +167,12 @@ function createVue() {
 					}, 1000)
 				}
 			},
+			tt(direction) {
+				this.avatarSectionScrollTop = 0
+				this.index = direction === 'up' ? 5 : 0
+			},
 		},
 		mounted() {
-			fullpageInstance = new fullpage('#fullpage', {
-				anchors: anchors,
-				responsiveHeight: 400,
-				fixedElements: '.nav',
-				credits: { enabled: false },
-				normalScrollElements: '.avatar',
-				onLeave: (origin, destination, direction) => {
-					$('.' + destination.anchor).scrollTop(
-						direction === 'up' ? 10 ** 5 : 0
-					)
-					if (destination.anchor === 'avatar') {
-						$('.avatar').scrollTop(0)
-						this.avatarSectionScrollTop = 0
-						this.index = direction === 'up' ? 5 : 0
-					}
-				},
-			})
-
 			window.oncontextmenu = function (e) {
 				e.preventDefault()
 			}
@@ -203,12 +206,13 @@ function createVue() {
 		},
 	}
 
-	Vue.createApp(App).mount('#app')
+	Vue.createApp(vueApp).mount('#app')
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-	handleRedirect()
+	// handleRedirect()
 	computeRootFontsize()
+	createVue()
 	//初始化锚点
 	location.hash = 'home'
 	//屏蔽刚进入页面时闪现的滚动条
@@ -217,5 +221,5 @@ window.addEventListener('DOMContentLoaded', function () {
 		overflow: unset;
 		height: unset
 	`
-	createVue()
+	initFullpage()
 })
