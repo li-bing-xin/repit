@@ -48,7 +48,7 @@
 					<img src="./assets/bg_components/Circles.svg" draggable="false" />
 				</div>
 
-				<div :class="`swapper ${hash === 'home' ? '' : 'opacity-0'}`">
+				<div class="swapper">
 					<div class="column">
 						<div class="animation-box">
 							<div class="flex flex-dir-column" v-for="_ in 2" :key="_">
@@ -109,7 +109,14 @@
 						The most fun, interactive and rewarding way to work out
 					</p>
 				</div>
-				<video poster="./assets/video-poster.png" autoplay></video>
+				<video
+					muted
+					poster="./assets/video-poster.png"
+					src="./assets/HeroVideo_FinalRender.mp4"
+					autoplay="autoplay"
+					loop="loop"
+					data-keepplaying
+				></video>
 			</section>
 
 			<section class="avatar relative section" data-anchor="avatar">

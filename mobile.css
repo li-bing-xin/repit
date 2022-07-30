@@ -258,7 +258,17 @@ nav img:first-child {
 	position: absolute;
 	left: 0;
 	bottom: 0rem;
-	transition: opacity 1s;
+	/* transition: opacity 1s; */
+}
+
+.home .swapper:before,
+.home .swapper:after {
+	transition: opacity 0.2s;
+}
+
+.home.active .swapper:before,
+.home.active .swapper:after {
+	opacity: 1;
 }
 
 .home .swapper:before {
@@ -270,6 +280,7 @@ nav img:first-child {
 	left: 0;
 	top: 0;
 	z-index: 1000;
+	opacity: 0;
 }
 
 .home .swapper:after {
@@ -321,7 +332,10 @@ nav img:first-child {
 }
 
 .home .swapper .column .animation-box {
-	animation: 17s linear 0ms infinite normal none running infinityScroll;
+	animation-duration: 17s;
+	animation-name: infinityScroll;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 .home .swapper .column:nth-child(2n) > .animation-box {
@@ -613,10 +627,20 @@ nav img:first-child {
 }
 
 .avatar .transform-wrapper .tip {
-	/* transition: all 1s; */
+	transition: all 1s;
 	white-space: nowrap;
 	width: 100%;
 	text-align: center;
+}
+
+.avatar .transform-wrapper .section-2 .tip.section-2-3,
+.avatar .transform-wrapper .section-4 .tip.section-4-5 {
+	opacity: 1;
+}
+
+.avatar .transform-wrapper .section-2 .tip.opacity-0,
+.avatar .transform-wrapper .section-4 .tip.opacity-0 {
+	opacity: 0;
 }
 
 .avatar .transform-wrapper .enter .tip {
@@ -784,6 +808,10 @@ nav img:first-child {
 	transform: scale(2);
 }
 
+.avatar .transform-wrapper .section-3 .tip {
+	display: none;
+}
+
 .avatar .transform-wrapper .section-4 img {
 	width: 0.4rem;
 	position: absolute;
@@ -850,6 +878,10 @@ nav img:first-child {
 
 .avatar .transform-wrapper .section-5.enter img:nth-child(5) {
 	left: calc(100vw - 0.62rem);
+}
+
+.avatar .transform-wrapper .section-5 .tip {
+	display: none;
 }
 
 .avatar .transform-wrapper .section-6 {
