@@ -221,8 +221,8 @@ nav img:first-child {
 	position: fixed;
 	left: 0;
 	top: 0;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	z-index: 9999;
 	background-color: black;
 	display: flex;
@@ -679,14 +679,14 @@ main {
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(1) {
-	width: 0.89rem;
+	width: 0.855rem;
 	position: absolute;
 	left: 0.1rem;
 	bottom: 0;
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(2) {
-	width: 0.74rem;
+	width: 0.715rem;
 	position: absolute;
 	left: 24vw;
 	bottom: 0;
@@ -700,14 +700,14 @@ main {
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(4) {
-	width: 0.96rem;
+	width: 0.964rem;
 	position: absolute;
 	left: calc(80vw - 0.82rem);
 	bottom: 0;
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(5) {
-	width: 0.43rem;
+	width: 0.418rem;
 	position: absolute;
 	left: calc(100vw - 0.6rem);
 	bottom: 0;

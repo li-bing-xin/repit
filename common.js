@@ -7,8 +7,8 @@ let fullpageInstance
 function handleRedirect() {
 	const isMobile = /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)
 
-	if (isMobile && !location.href.includes('/mobile.html'))
-		location.href = location.origin + '/mobile.html'
+	if (isMobile && !location.href.includes('/mobile'))
+		location.href = location.origin + '/mobile'
 }
 
 //计算根节点的字体大小， rem布局方案必须
@@ -192,6 +192,10 @@ function createVue() {
 						this.avatarSectionScrollTop = 0
 						this.index = direction === 'up' ? 5 : 0
 					}
+					if (destination.anchor === 'fitness') {
+						const video = $('.fitness video')[0]
+						if (video.paused) video.play()
+					}
 				},
 			})
 
@@ -244,8 +248,8 @@ function loadingLottie() {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
+	handleRedirect()
 	loadingLottie()
-	// handleRedirect()
 	computeRootFontsize()
 	//初始化锚点
 	location.hash = 'home'
