@@ -332,8 +332,8 @@ nav ul li:hover {
 	font-family: 'Noto Sans Mono';
 	font-style: normal;
 	font-weight: 100;
-	font-size: 0.22rem;
-	line-height: 0.37rem;
+	font-size: 0.2rem;
+	line-height: 0.35rem;
 	color: rgba(255, 255, 255, 0.6);
 }
 
@@ -569,8 +569,8 @@ nav ul li:hover {
 	font-family: 'Everett';
 	font-style: normal;
 	font-weight: 300;
-	font-size: 0.32rem;
-	line-height: 0.44rem;
+	font-size: 0.3rem;
+	line-height: 0.38rem;
 	margin-bottom: 0.15rem;
 	white-space: nowrap;
 }
@@ -579,16 +579,16 @@ nav ul li:hover {
 	font-family: 'Noto Sans Mono';
 	font-style: normal;
 	font-weight: 300;
-	font-size: 0.22rem;
-	line-height: 0.37rem;
+	font-size: 0.2rem;
+	line-height: 0.35rem;
 	color: rgba(255, 255, 255, 0.6);
 }
 
 .avatar .transform-wrapper {
-	width: 70vw;
+	width: 76vw;
 	z-index: 100;
 	flex: 1;
-	margin: 0 15vw;
+	margin: 0 12vw;
 	box-sizing: border-box;
 }
 
@@ -936,7 +936,7 @@ nav ul li:hover {
 	width: 100%;
 	height: unset;
 	display: flex;
-	top: 1.4rem;
+	top: 1rem;
 	justify-content: center;
 	box-sizing: border-box;
 	flex-direction: column;
