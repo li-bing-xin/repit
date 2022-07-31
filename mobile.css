@@ -169,7 +169,7 @@ nav {
 	top: 0;
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(0.08rem);
-	z-index: 10000;
+	z-index: 5000;
 }
 
 nav img:first-child {
@@ -217,6 +217,24 @@ nav img:first-child {
 	display: none;
 }
 
+#loading {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#loading .lottie {
+	width: 1rem;
+	height: 1rem;
+}
+
 main {
 	height: 99.99% !important;
 }
@@ -239,10 +257,8 @@ main {
 
 .home .head img:last-child {
 	width: 2rem;
-	/* position: absolute; */
 	margin: 0 auto 0.2rem;
 	display: block;
-	/* left: calc(50% - 1rem); */
 }
 
 .home .head p {
@@ -262,12 +278,11 @@ main {
 	position: absolute;
 	left: 0;
 	bottom: 0rem;
-	/* transition: opacity 1s; */
 }
 
 .home .swapper:before,
 .home .swapper:after {
-	transition: opacity 0.2s;
+	/* transition: opacity 0.2s; */
 }
 
 .home.active .swapper:before,
@@ -459,11 +474,11 @@ main {
 
 .roadmap {
 	position: relative;
-	margin-bottom: 0.5rem;
 	margin-top: 0.6rem;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
+	padding-bottom: 0.5rem;
 }
 
 .roadmap > h2 {
@@ -474,7 +489,6 @@ main {
 .roadmap .road {
 	width: 100%;
 	margin-left: 0.3rem;
-	padding-bottom: 0.5rem;
 }
 
 .roadmap .stage {
@@ -535,7 +549,7 @@ main {
 	position: absolute;
 	width: 1.5rem;
 	right: 0;
-	top: 6.9rem;
+	top: 7rem;
 	opacity: 0.1;
 	transform: rotate(-180deg);
 }
@@ -608,19 +622,22 @@ main {
 	margin: auto;
 	top: 0.4rem;
 	z-index: 100;
-	/* height: 50vh; */
-	/* min-height: 5rem; */
 }
 
 .avatar .transform-wrapper > div {
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 2rem);
+	z-index: 1;
+}
+
+.avatar .transform-wrapper > div.leave {
+	width: 100%;
+	height: calc(100vh - 2rem);
+	z-index: -1;
 }
 
 .avatar .transform-wrapper .imgs {
-	/* position: absolute; */
 	left: 0;
-	/* top: 1rem; */
 	width: 100vw;
 	height: 35vh;
 	flex: 1;
@@ -671,7 +688,7 @@ main {
 .avatar .transform-wrapper .section-1 img:nth-child(2) {
 	width: 0.74rem;
 	position: absolute;
-	left: 25vw;
+	left: 24vw;
 	bottom: 0;
 }
 
@@ -685,19 +702,18 @@ main {
 .avatar .transform-wrapper .section-1 img:nth-child(4) {
 	width: 0.96rem;
 	position: absolute;
-	right: 14vw;
+	left: calc(80vw - 0.82rem);
 	bottom: 0;
 }
 
 .avatar .transform-wrapper .section-1 img:nth-child(5) {
 	width: 0.43rem;
 	position: absolute;
-	right: 0.1rem;
+	left: calc(100vw - 0.6rem);
 	bottom: 0;
 }
 
 .avatar .transform-wrapper .section-1 .tip {
-	/* position: absolute; */
 	left: 0;
 }
 
@@ -753,14 +769,14 @@ main {
 }
 
 .avatar .transform-wrapper .section-3 .imgs > div:nth-child(1) {
-	width: 0.597rem;
+	width: 0.602rem;
 	position: absolute;
 	bottom: 0;
 	left: calc(50vw - 0.18rem);
 }
 
 .avatar .transform-wrapper .section-3 .imgs > div:nth-child(2) {
-	width: 0.64rem;
+	width: 0.642rem;
 	position: absolute;
 	bottom: 0;
 	left: calc(50vw - 0.18rem);
@@ -775,14 +791,14 @@ main {
 }
 
 .avatar .transform-wrapper .section-3 .imgs > div:nth-child(4) {
-	width: 0.64rem;
+	width: 0.637rem;
 	position: absolute;
 	left: calc(50vw - 0.18rem);
 	bottom: 0;
 }
 
 .avatar .transform-wrapper .section-3 .imgs > div:nth-child(5) {
-	width: 0.692rem;
+	width: 0.686rem;
 	position: absolute;
 	left: calc(50vw - 0.18rem);
 	bottom: 0;
@@ -798,7 +814,6 @@ main {
 
 .avatar .transform-wrapper .section-3.enter .imgs > div:nth-child(4) {
 	left: calc(80vw - 0.64rem);
-	/* right: 20vw; */
 }
 
 .avatar .transform-wrapper .section-3.enter .imgs > div:nth-child(5) {
@@ -819,7 +834,6 @@ main {
 }
 
 .avatar .transform-wrapper .section-3 .tip {
-	/* display: none; */
 	opacity: 0;
 }
 
@@ -892,7 +906,6 @@ main {
 }
 
 .avatar .transform-wrapper .section-5 .tip {
-	/* display: none; */
 	opacity: 0;
 }
 
@@ -907,9 +920,7 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	/* padding-bottom: 0.5rem; */
 	position: absolute;
-	/* padding-top: 0.15rem; */
 	align-content: center;
 }
 
@@ -1077,5 +1088,4 @@ main {
 	bottom: 0.6rem;
 	width: 100%;
 	box-sizing: border-box;
-	/* margin-top: 1rem; */
 }

@@ -211,6 +211,24 @@ nav ul li:hover {
 	font-weight: bold;
 }
 
+#loading {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#loading .lottie {
+	width: 1rem;
+	height: 1rem;
+}
+
 .home {
 	position: relative;
 	height: 100vh;

@@ -231,7 +231,20 @@ function createVue() {
 	Vue.createApp(App).mount('#app')
 }
 
+function loadingLottie() {
+	setTimeout(() => {
+		lottie.loadAnimation({
+			container: document.querySelector('#loading .lottie'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: './assets/lottie.json',
+		})
+	})
+}
+
 window.addEventListener('DOMContentLoaded', function () {
+	loadingLottie()
 	// handleRedirect()
 	computeRootFontsize()
 	//初始化锚点
@@ -243,4 +256,8 @@ window.addEventListener('DOMContentLoaded', function () {
 		height: unset
 	`
 	createVue()
+})
+
+window.addEventListener('load', function () {
+	$('#loading').hide()
 })
