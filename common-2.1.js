@@ -227,16 +227,17 @@ function createVue() {
 
 			avatar.addEventListener('touchstart', e => {
 				this.touchStartY = e.changedTouches[0].pageY
-
-				const video = $('.fitness video')[0]
-				video.play()
-				video.pause()
 			})
 
 			avatar.addEventListener('touchend', e => {
 				this.handleAvatarSectionScroll(
 					this.touchStartY - e.changedTouches[0].pageY
 				)
+			})
+
+			$('.fitness video')[0].addEventListener('loadeddata', function () {
+				this.play()
+				this.pause()
 			})
 		},
 	}
@@ -258,7 +259,7 @@ function loadingLottie() {
 
 window.addEventListener('DOMContentLoaded', function () {
 	handleRedirect()
-	// loadingLottie()
+	loadingLottie()
 	computeRootFontsize()
 	//初始化锚点
 	location.hash = 'home'
