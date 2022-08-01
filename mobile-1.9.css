@@ -590,7 +590,17 @@ nav img:first-child {
 	display: none;
 }
 
-.avatar > .bg {
+.avatar .normal-scroll {
+	width: 100%;
+	height: 100%;
+	/* overflow-y: auto; */
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.avatar .bgs {
 	width: 100vw;
 	height: 100%;
 	overflow: hidden;
@@ -637,7 +647,6 @@ nav img:first-child {
 
 .avatar .transform-wrapper > div.leave {
 	z-index: -1;
-	visibility: hidden;
 }
 
 .avatar .transform-wrapper .imgs {

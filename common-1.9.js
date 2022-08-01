@@ -227,6 +227,10 @@ function createVue() {
 
 			avatar.addEventListener('touchstart', e => {
 				this.touchStartY = e.changedTouches[0].pageY
+
+				const video = $('.fitness video')[0]
+				video.play()
+				video.pause()
 			})
 
 			avatar.addEventListener('touchend', e => {
