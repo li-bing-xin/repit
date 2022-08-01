@@ -235,8 +235,13 @@ nav img:first-child {
 	height: 1rem;
 }
 
-main {
-	height: 99.99% !important;
+#fullpage > section {
+	/* transition: opacity 0s 1s; */
+}
+
+#fullpage > section:not(.active) {
+	/* display: none; */
+	/* visibility: hidden; */
 }
 
 .home {
@@ -631,9 +636,8 @@ main {
 }
 
 .avatar .transform-wrapper > div.leave {
-	width: 100%;
-	height: calc(100vh - 2rem);
 	z-index: -1;
+	visibility: hidden;
 }
 
 .avatar .transform-wrapper .imgs {

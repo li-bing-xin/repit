@@ -565,15 +565,26 @@ nav ul li:hover {
 .avatar {
 	user-select: none;
 	height: 100vh;
-	display: flex !important;
-	flex-direction: column !important;
+	/* display: flex !important; */
+	/* flex-direction: column !important; */
+	overflow: hidden;
 }
 
 .avatar::-webkit-scrollbar {
 	display: none;
 }
 
-.avatar > .bg {
+.avatar .normal-scroll {
+	width: 100%;
+	height: 100%;
+	/* overflow-y: auto; */
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.avatar .bgs {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
@@ -608,6 +619,7 @@ nav ul li:hover {
 	flex: 1;
 	margin: 0 12vw;
 	box-sizing: border-box;
+	/* overflow: hidden; */
 }
 
 .avatar .transform-wrapper > div {
@@ -617,9 +629,9 @@ nav ul li:hover {
 }
 
 .avatar .transform-wrapper > div.leave {
-	width: 100%;
-	height: calc(100vh - 2rem);
 	z-index: -1;
+	opacity: 0;
+	transition: opacity 0s 1s;
 }
 
 .avatar .transform-wrapper .imgs {
@@ -954,7 +966,7 @@ nav ul li:hover {
 }
 
 .avatar .transform-wrapper .section-6 {
-	position: relative;
+	/* position: relative; */
 }
 
 .avatar .transform-wrapper .section-6 .imgs {

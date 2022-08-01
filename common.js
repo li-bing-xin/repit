@@ -8,7 +8,7 @@ function handleRedirect() {
 	const isMobile = /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)
 
 	if (isMobile && !location.href.includes('/mobile'))
-		location.href = location.origin + '/mobile'
+		location.href = location.origin + '/mobile.html'
 }
 
 //计算根节点的字体大小， rem布局方案必须
@@ -178,11 +178,14 @@ function createVue() {
 			fullpageInstance = new fullpage('#fullpage', {
 				anchors: anchors,
 				// easingcss3: 'linear',
+				// autoScrolling: true,
+				// fadingEffect: true,
+				fitToSection: false,
 				responsiveHeight: 400,
 				scrollingSpeed: 600,
 				fixedElements: '.nav',
 				credits: { enabled: false },
-				normalScrollElements: '.avatar',
+				normalScrollElements: '.normal-scroll',
 				onLeave: (origin, destination, direction) => {
 					$('.' + destination.anchor).scrollTop(
 						direction === 'up' ? 10 ** 5 : 0
@@ -192,10 +195,14 @@ function createVue() {
 						this.avatarSectionScrollTop = 0
 						this.index = direction === 'up' ? 5 : 0
 					}
-					if (destination.anchor === 'fitness') {
-						const video = $('.fitness video')[0]
-						if (video.paused) video.play()
-					}
+				},
+				beforeLeave: (origin, destination) => {
+					const video = $('.fitness video')[0]
+					if (destination.anchor === 'fitness' && video.paused)
+						setTimeout(() => {
+							video.play()
+						}, 600)
+					else if (origin.anchor === 'fitness' && !video.paused) video.pause()
 				},
 			})
 
@@ -207,9 +214,7 @@ function createVue() {
 				this.hash = location.hash.slice(1)
 			})
 
-			window.addEventListener('resize', () => {
-				computeRootFontsize()
-			})
+			window.addEventListener('resize', computeRootFontsize)
 
 			const avatar = document.querySelector('.avatar')
 
@@ -249,7 +254,7 @@ function loadingLottie() {
 
 window.addEventListener('DOMContentLoaded', function () {
 	handleRedirect()
-	loadingLottie()
+	// loadingLottie()
 	computeRootFontsize()
 	//初始化锚点
 	location.hash = 'home'
