@@ -177,9 +177,6 @@ function createVue() {
 		mounted() {
 			fullpageInstance = new fullpage('#fullpage', {
 				anchors: anchors,
-				// easingcss3: 'linear',
-				// autoScrolling: true,
-				// fadingEffect: true,
 				fitToSection: false,
 				responsiveHeight: 400,
 				scrollingSpeed: 600,
@@ -216,10 +213,16 @@ function createVue() {
 
 			window.addEventListener('resize', computeRootFontsize)
 
+			window.addEventListener('touchstart', () => {
+				const video = $('.fitness video')[0]
+				video.play()
+				video.pause()
+			})
+
 			const avatar = document.querySelector('.avatar')
 
-			//当处于avatar板块内时，监听滚动并记录滚动高度
 			avatar.addEventListener('scroll', e => {
+				//当处于avatar板块内时，监听滚动并记录滚动高度
 				this.avatarSectionScrollTop = e.target.scrollTop
 			})
 
@@ -233,11 +236,6 @@ function createVue() {
 				this.handleAvatarSectionScroll(
 					this.touchStartY - e.changedTouches[0].pageY
 				)
-			})
-
-			$('.fitness video')[0].addEventListener('loadeddata', function () {
-				this.play()
-				this.pause()
 			})
 		},
 	}
@@ -275,3 +273,5 @@ window.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function () {
 	$('#loading').hide()
 })
+
+history.pushState(null, null, document.URL) //解决微信浏览器下滑动到下一幕时浏览器高度突变的问题
