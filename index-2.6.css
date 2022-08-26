@@ -237,7 +237,7 @@ nav .links a:last-child:after{
 
 nav .links img {
     margin: 0 .2rem;
-    width: .32rem;
+    height: .32rem;
 }
 
 #loading {
